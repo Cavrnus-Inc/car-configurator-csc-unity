@@ -1,0 +1,156 @@
+using System;
+using System.Collections.Generic;
+using CavrnusDemo.SdkExtensions;
+using CavrnusSdk.PropertySynchronizers;
+using CavrnusSdk.API;
+using UnityEngine;
+
+namespace CavrnusDemo
+{
+    [RequireComponent(typeof(CavrnusPropertiesContainer))]
+    public class Car : MonoBehaviour
+    {
+        [Header("Headlight & TailLights")]
+        [SerializeField] private string headLightsPropertyName = "HeadlightsVis";
+        
+        [Space]
+        [SerializeField] private GameObject headLightsGameObject;
+        [SerializeField] private Material emissiveMaterial;
+        [SerializeField] private string emissionColorMaterialProperty = "_EmissionColor";
+        
+        [Header("UnderGlow")]
+        [SerializeField] private string underGlowPropertyNameVis = "UnderGlowVis";
+        [SerializeField] private string underGlowPropertyNameColor = "UnderGlowColor";
+        
+        [Space]
+        [SerializeField] private Light underGlowLight;
+        [SerializeField] private GameObject underGlowGameObject;
+
+        [Header("Animations")]
+        [SerializeField] private string driverDoorPropertyNameAnimation = "DriverDoorAnimation";
+        [SerializeField] private RotationAnimator driverDoor;
+        
+        [Space]
+        [SerializeField] private string passengerDoorPropertyNameAnimation = "PassengerDoorAnimation";
+        [SerializeField] private RotationAnimator passengerDoor;
+        
+        [Space]
+        [SerializeField] private string trunkPropertyNameAnimation = "TrunkAnimation";
+        [SerializeField] private RotationAnimator trunk;
+        
+        [Header("Paint Texture")]
+        [SerializeField] private Material carPaintMaterial;
+        
+        private readonly List<IDisposable> disposables = new List<IDisposable>();
+        private CavrnusSpaceConnection spaceConn;
+        private CavrnusPropertiesContainer ctx;
+
+        private void Start()
+        {
+            ctx = GetComponent<CavrnusPropertiesContainer>();
+
+            CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc => {
+                spaceConn = sc;
+
+                // Toggle Lights Vis
+                emissiveMaterial.EnableKeyword("_EMISSION");
+                spaceConn.DefineBoolPropertyDefaultValue(ctx.UniqueContainerName, headLightsPropertyName, headLightsGameObject.activeSelf);
+                disposables.Add(spaceConn.BindBoolPropertyValue(ctx.UniqueContainerName, headLightsPropertyName, b => {
+                    headLightsGameObject.SetActive(b);
+                    emissiveMaterial.SetColor(emissionColorMaterialProperty, Color.white * Mathf.Pow(2.0F, b ? 8 : 0));
+                }));
+                
+                // Underglow Vis
+                spaceConn.DefineBoolPropertyDefaultValue(ctx.UniqueContainerName, underGlowPropertyNameVis, underGlowGameObject.activeSelf);
+                disposables.Add(spaceConn.BindBoolPropertyValue(ctx.UniqueContainerName, underGlowPropertyNameVis, b => {
+                    underGlowGameObject.SetActive(b);
+                }));
+                
+                // Underglow Color
+                spaceConn.DefineColorPropertyDefaultValue(ctx.UniqueContainerName, underGlowPropertyNameColor, underGlowLight.color);
+                disposables.Add(spaceConn.BindColorPropertyValue(ctx.UniqueContainerName, underGlowPropertyNameColor, c => {
+                    underGlowLight.color = c;
+                }));
+                
+                // Driver Door Animation
+                spaceConn.DefineBoolPropertyDefaultValue(ctx.UniqueContainerName, driverDoorPropertyNameAnimation, driverDoor.AtStart);
+                disposables.Add(spaceConn.BindBoolPropertyValue(ctx.UniqueContainerName, driverDoorPropertyNameAnimation, b => {
+                    driverDoor.SetState(b);
+                }));
+                
+                // Passenger Door Animation
+                spaceConn.DefineBoolPropertyDefaultValue(ctx.UniqueContainerName, passengerDoorPropertyNameAnimation, passengerDoor.AtStart);
+                disposables.Add(spaceConn.BindBoolPropertyValue(ctx.UniqueContainerName, passengerDoorPropertyNameAnimation, b => {
+                    passengerDoor.SetState(b);
+                }));
+                
+                // Trunk Animation
+                spaceConn.DefineBoolPropertyDefaultValue(ctx.UniqueContainerName, trunkPropertyNameAnimation, trunk.AtStart);
+                disposables.Add(spaceConn.BindBoolPropertyValue(ctx.UniqueContainerName, trunkPropertyNameAnimation, b => {
+                    trunk.SetState(b);
+                }));
+            });
+        }
+        
+        public void ToggleDriverDoorAnim()
+        {
+            if (spaceConn == null) return;
+            
+            var current = spaceConn.GetBoolPropertyValue(ctx.UniqueContainerName, driverDoorPropertyNameAnimation);
+            spaceConn.PostBoolPropertyUpdate(ctx.UniqueContainerName, driverDoorPropertyNameAnimation, !current);
+        }
+        
+        public void TogglePassengerDoorAnim()
+        {
+            if (spaceConn == null) return;
+            
+            var current = spaceConn.GetBoolPropertyValue(ctx.UniqueContainerName, passengerDoorPropertyNameAnimation);
+            spaceConn.PostBoolPropertyUpdate(ctx.UniqueContainerName, passengerDoorPropertyNameAnimation, !current);
+        }
+        
+        public void ToggleTrunkAnim()
+        {
+            if (spaceConn == null) return;
+            
+            var current = spaceConn.GetBoolPropertyValue(ctx.UniqueContainerName, trunkPropertyNameAnimation);
+            spaceConn.PostBoolPropertyUpdate(ctx.UniqueContainerName, trunkPropertyNameAnimation, !current);
+        }
+        
+        public void ToggleUnderGlow()
+        {
+            if (spaceConn == null) return;
+            
+            var current = spaceConn.GetBoolPropertyValue(ctx.UniqueContainerName, underGlowPropertyNameVis);
+            spaceConn.PostBoolPropertyUpdate(ctx.UniqueContainerName, underGlowPropertyNameVis, !current);
+        }
+        
+        public void ToggleCarLights()
+        {
+            if (spaceConn == null) return;
+            
+            var current = spaceConn.GetBoolPropertyValue(ctx.UniqueContainerName, headLightsPropertyName);
+            spaceConn.PostBoolPropertyUpdate(ctx.UniqueContainerName, headLightsPropertyName, !current);
+            
+            emissiveMaterial.SetColor(emissionColorMaterialProperty, Color.white * Mathf.Pow(2.0F, !current ? 8 : 0));
+        }
+
+        public void SetUnderGlowColor(ColorTextureChanger.ColorTextureMapper color)
+        {
+            if (spaceConn == null) return;
+            
+            spaceConn.PostColorPropertyUpdate(ctx.UniqueContainerName, underGlowPropertyNameColor, color.Color);
+        }
+
+        public void SetCarPaint(ColorTextureChanger.ColorTextureMapper mapper)
+        {
+            if (spaceConn == null) return;
+
+            carPaintMaterial.mainTexture = mapper.Texture;
+        }
+
+        private void OnDestroy()
+        {
+            disposables.ForEach(d => d.Dispose());
+        }
+    }
+}

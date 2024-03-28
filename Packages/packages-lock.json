@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.cavrnus.csc": {
+      "version": "2.6.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.cavrn.us"
+    },
     "com.unity.burst": {
       "version": "1.8.12",
       "depth": 1,
