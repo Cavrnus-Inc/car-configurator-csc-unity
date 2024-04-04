@@ -4,6 +4,7 @@ using CavrnusDemo.SdkExtensions;
 using CavrnusSdk.PropertySynchronizers;
 using CavrnusSdk.API;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace CavrnusDemo
 {
@@ -17,10 +18,12 @@ namespace CavrnusDemo
         [SerializeField] private GameObject headLightsGameObject;
         [SerializeField] private Material emissiveMaterial;
         [SerializeField] private string emissionColorMaterialProperty = "_EmissionColor";
+        [SerializeField] private Toggle headLightsToggle;
         
         [Header("UnderGlow")]
         [SerializeField] private string underGlowPropertyNameVis = "UnderGlowVis";
         [SerializeField] private string underGlowPropertyNameColor = "UnderGlowColor";
+        [SerializeField] private Toggle underGlowToggle;
         
         [Space]
         [SerializeField] private Light underGlowLight;
@@ -58,12 +61,15 @@ namespace CavrnusDemo
                 disposables.Add(spaceConn.BindBoolPropertyValue(ctx.UniqueContainerName, headLightsPropertyName, b => {
                     headLightsGameObject.SetActive(b);
                     emissiveMaterial.SetColor(emissionColorMaterialProperty, Color.white * Mathf.Pow(2.0F, b ? 8 : 0));
+
+                    headLightsToggle.SetIsOnWithoutNotify(b);
                 }));
                 
                 // Underglow Vis
                 spaceConn.DefineBoolPropertyDefaultValue(ctx.UniqueContainerName, underGlowPropertyNameVis, underGlowGameObject.activeSelf);
                 disposables.Add(spaceConn.BindBoolPropertyValue(ctx.UniqueContainerName, underGlowPropertyNameVis, b => {
                     underGlowGameObject.SetActive(b);
+                    underGlowToggle.SetIsOnWithoutNotify(b);
                 }));
                 
                 // Underglow Color
@@ -89,6 +95,9 @@ namespace CavrnusDemo
                 disposables.Add(spaceConn.BindBoolPropertyValue(ctx.UniqueContainerName, trunkPropertyNameAnimation, b => {
                     trunk.SetState(b);
                 }));
+                
+                headLightsToggle.onValueChanged.AddListener(ToggleCarLights);
+                underGlowToggle.onValueChanged.AddListener(ToggleUnderGlow);
             });
         }
         
@@ -124,14 +133,22 @@ namespace CavrnusDemo
             spaceConn.PostBoolPropertyUpdate(ctx.UniqueContainerName, underGlowPropertyNameVis, !current);
         }
         
+        public void ToggleUnderGlow(bool state)
+        {
+            spaceConn?.PostBoolPropertyUpdate(ctx.UniqueContainerName, underGlowPropertyNameVis, state);
+        }
+
+        public void ToggleCarLights(bool state)
+        {
+            spaceConn?.PostBoolPropertyUpdate(ctx.UniqueContainerName, headLightsPropertyName, state);
+        }
+        
         public void ToggleCarLights()
         {
             if (spaceConn == null) return;
             
             var current = spaceConn.GetBoolPropertyValue(ctx.UniqueContainerName, headLightsPropertyName);
             spaceConn.PostBoolPropertyUpdate(ctx.UniqueContainerName, headLightsPropertyName, !current);
-            
-            emissiveMaterial.SetColor(emissionColorMaterialProperty, Color.white * Mathf.Pow(2.0F, !current ? 8 : 0));
         }
 
         public void SetUnderGlowColor(ColorTextureChanger.ColorTextureMapper color)
@@ -151,6 +168,9 @@ namespace CavrnusDemo
         private void OnDestroy()
         {
             disposables.ForEach(d => d.Dispose());
+            
+            headLightsToggle.onValueChanged.RemoveListener(ToggleCarLights);
+            underGlowToggle.onValueChanged.RemoveListener(ToggleUnderGlow);
         }
     }
 }

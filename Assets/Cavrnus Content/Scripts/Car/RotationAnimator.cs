@@ -76,7 +76,6 @@ namespace CavrnusDemo.SdkExtensions
                 var curvePercentage = animationCurve.Evaluate(progress);
                 transform.rotation = Quaternion.Slerp(start, target, curvePercentage);
                 
-                print(transform.rotation);
                 elapsedTime += Time.deltaTime;
 
                 yield return null;
