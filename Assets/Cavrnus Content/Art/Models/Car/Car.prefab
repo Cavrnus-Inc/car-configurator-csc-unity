@@ -650,8 +650,10 @@ MonoBehaviour:
   headLightsGameObject: {fileID: 367284437488726404}
   emissiveMaterial: {fileID: 2100000, guid: 788e1fd9c52c28a459976f2634877c65, type: 2}
   emissionColorMaterialProperty: _EmissionColor
+  headLightsToggle: {fileID: 0}
   underGlowPropertyNameVis: UnderGlowVis
   underGlowPropertyNameColor: UnderGlowColor
+  underGlowToggle: {fileID: 0}
   underGlowLight: {fileID: 2414048031476955363}
   underGlowGameObject: {fileID: 4637484161484160577}
   driverDoorPropertyNameAnimation: DriverDoorAnimation
@@ -2066,8 +2068,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  startingRotation: {x: -0.50000006, y: 0.5, z: 0.50000006, w: 0.5}
-  endingRotation: {x: -0.27059862, y: 0.65328133, z: 0.65328133, w: 0.27059853}
+  startingRotation: {x: 0, y: 0, z: 0, w: 1}
+  endingRotation: {x: 0, y: 0, z: 0.38268346, w: 0.9238795}
 --- !u!114 &2265282596391096397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2781,8 +2783,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  startingRotation: {x: -0.5000001, y: 0.49999997, z: 0.5000001, w: 0.49999997}
-  endingRotation: {x: -0.3123262, y: 0.63439137, z: 0.3123262, w: 0.63439137}
+  startingRotation: {x: 0, y: 0, z: 0, w: 1}
+  endingRotation: {x: 0.38268346, y: 0, z: 0, w: 0.9238795}
 --- !u!114 &2649982057565357851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4556,8 +4558,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  startingRotation: {x: -0.50000006, y: 0.5, z: 0.50000006, w: 0.5}
-  endingRotation: {x: -0.6532811, y: 0.2705987, z: 0.27059832, w: 0.65328157}
+  startingRotation: {x: 0, y: 0, z: 0, w: 1}
+  endingRotation: {x: 0, y: 0, z: 0.38268346, w: 0.9238795}
 --- !u!114 &2134989034927461043
 MonoBehaviour:
   m_ObjectHideFlags: 0

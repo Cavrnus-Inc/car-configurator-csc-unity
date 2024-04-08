@@ -54,34 +54,34 @@ namespace CavrnusDemo.SdkExtensions
             AtStart = false;
         }
 
-        public void SetBegin() => startingRotation = transform.rotation;
+        public void SetBegin() => startingRotation = transform.localRotation;
 
-        public void SetEnd() => endingRotation = transform.rotation;
+        public void SetEnd() => endingRotation = transform.localRotation;
 
         private Coroutine currentRoutine;
         private IEnumerator RotationRoutine(Quaternion target)
         {   
             // Calculate the angle to rotate
-            var angleToRotate = Quaternion.Angle(transform.rotation, target);
+            var angleToRotate = Quaternion.Angle(transform.localRotation, target);
 
             // Calculate the duration based on speed and angle
             var duration = angleToRotate / rotationSpeed;
 
             var elapsedTime = 0f;
-            var start = transform.rotation;
+            var start = transform.localRotation;
 
             while (elapsedTime < duration)
             {
                 var progress = elapsedTime / duration;
                 var curvePercentage = animationCurve.Evaluate(progress);
-                transform.rotation = Quaternion.Slerp(start, target, curvePercentage);
+                transform.localRotation = Quaternion.Slerp(start, target, curvePercentage);
                 
                 elapsedTime += Time.deltaTime;
 
                 yield return null;
             }
 
-            transform.rotation = target;
+            transform.localRotation = target;
         }
     }
 }
