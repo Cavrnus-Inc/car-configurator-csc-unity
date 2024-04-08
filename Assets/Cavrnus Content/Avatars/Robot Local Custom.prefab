@@ -43,13 +43,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5319491108826392754}
-  - component: {fileID: 4470478767294957399}
-  - component: {fileID: 577437448777426502}
   - component: {fileID: 3612455480465607794}
   - component: {fileID: 2540596596884341212}
   - component: {fileID: 5256654509852480860}
   - component: {fileID: 4792727380843272225}
-  - component: {fileID: 3858255916769723814}
   m_Layer: 0
   m_Name: Robot Local Custom
   m_TagString: Untagged
@@ -73,34 +70,6 @@ Transform:
   - {fileID: 2920139622620518266}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4470478767294957399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895844663932202552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19e724c140dc23a418b8365b0907f9ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UniqueContainerName: AvatarLocal
---- !u!114 &577437448777426502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895844663932202552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cd55bf99a9846e42af35a7ac3492b44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PropertyName: Transform
-  SendMyChanges: 0
-  RecieveChanges: 1
 --- !u!114 &3612455480465607794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,18 +130,6 @@ MonoBehaviour:
   components:
   - {fileID: 5256654509852480860}
   - {fileID: 2540596596884341212}
---- !u!114 &3858255916769723814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895844663932202552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b94f81ebabca554d995c69dc4ce9cb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1010717732540454492
 GameObject:
   m_ObjectHideFlags: 0
