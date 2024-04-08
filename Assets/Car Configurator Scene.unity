@@ -323,6 +323,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e813ce4abd790a44bde650b6b785a17, type: 3}
+--- !u!223 &440293778 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 4726621563808330559, guid: 0e813ce4abd790a44bde650b6b785a17,
+    type: 3}
+  m_PrefabInstance: {fileID: 440293777}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &902575294
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,10 +506,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
+        type: 3}
+      propertyPath: UiCanvas
+      value: 
+      objectReference: {fileID: 440293778}
     - target: {fileID: 4731373496736375337, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}
       propertyPath: m_Name
       value: Cavrnus Spatial Connector
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731373496736375337, guid: bc329ed98d4c9a44a967d563bb09778d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5226886331182882975, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}
@@ -690,6 +706,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Custom Rigged Local
+      objectReference: {fileID: 0}
+    - target: {fileID: 432733465644987602, guid: 7fc5bde68ce768446b4dee1e46cbcba8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 879855871153359146, guid: 7fc5bde68ce768446b4dee1e46cbcba8,
         type: 3}
@@ -1330,8 +1351,8 @@ SceneRoots:
   - {fileID: 360165284}
   - {fileID: 909040152}
   - {fileID: 935039963}
-  - {fileID: 440293777}
   - {fileID: 1531754065}
+  - {fileID: 440293777}
   - {fileID: 60490383}
   - {fileID: 3961020757749184672}
   - {fileID: 5292292243968889953}
