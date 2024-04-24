@@ -1,7 +1,16 @@
 {
   "dependencies": {
+    "com.cavrnus.chat": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.cavrnus.csc": "2.8.1"
+      },
+      "url": "https://packages.cavrn.us"
+    },
     "com.cavrnus.csc": {
-      "version": "2.7.3",
+      "version": "2.8.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
