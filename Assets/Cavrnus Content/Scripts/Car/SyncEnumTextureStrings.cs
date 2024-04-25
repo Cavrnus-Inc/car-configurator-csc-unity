@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CavrnusDemo;
 using CavrnusSdk.API;
 using Collab.Proxy.Prop.StringProp;
 using UnityEngine;
@@ -28,9 +29,13 @@ namespace Cavrnus_Content.Scripts.Car
         
         private IDisposable disp;
 
+        private CavrnusSpaceConnection spaceConn;
+
         private void Start()
         {
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(spaceConn => {
+                this.spaceConn = spaceConn;
+                
                 var enumOptions = new List<StringEditingEnumerationOption>();
                 textureMap.ForEach(tm => enumOptions.Add(new StringEditingEnumerationOption {
                     DisplayText = tm.TextureName,
@@ -48,6 +53,11 @@ namespace Cavrnus_Content.Scripts.Car
                     }
                 });
             });
+        }
+
+        public void SetColor(ColorTextureChanger.ColorTextureMapper cm)
+        {
+            spaceConn?.PostStringPropertyUpdate(containerName, propertyName, cm.Texture.name);
         }
         
         private void OnDestroy()

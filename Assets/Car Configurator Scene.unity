@@ -717,10 +717,20 @@ PrefabInstance:
       objectReference: {fileID: 440293778}
     - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}
+      propertyPath: GuestName
+      value: Cody
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
+        type: 3}
       propertyPath: RemoteUserAvatar
       value: 
       objectReference: {fileID: 4723734819478910584, guid: e599be8019d5d494688dadc45a8c2c82,
         type: 3}
+    - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
+        type: 3}
+      propertyPath: AuthenticationMethod
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}
       propertyPath: AutomaticSpaceJoinId

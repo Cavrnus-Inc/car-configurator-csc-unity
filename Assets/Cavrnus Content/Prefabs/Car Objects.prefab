@@ -3716,7 +3716,7 @@ PrefabInstance:
         type: 3}
       propertyPath: textureChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 5633700074554635311}
+      objectReference: {fileID: 215117233090360090}
     - target: {fileID: 8874759760006830876, guid: c8f03c71b2105e74e8dac401302b3efa,
         type: 3}
       propertyPath: textureChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -3725,12 +3725,12 @@ PrefabInstance:
     - target: {fileID: 8874759760006830876, guid: c8f03c71b2105e74e8dac401302b3efa,
         type: 3}
       propertyPath: textureChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetCarPaint
+      value: SetColor
       objectReference: {fileID: 0}
     - target: {fileID: 8874759760006830876, guid: c8f03c71b2105e74e8dac401302b3efa,
         type: 3}
       propertyPath: textureChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CavrnusDemo.Car, Assembly-CSharp
+      value: Cavrnus_Content.Scripts.Car.SyncEnumTextureStrings, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8874759760006830876, guid: c8f03c71b2105e74e8dac401302b3efa,
         type: 3}
@@ -5110,6 +5110,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a94f4f98690864478f879c0ae58f462, type: 3}
+--- !u!114 &215117233090360090 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7862724998159316305, guid: 8a94f4f98690864478f879c0ae58f462,
+    type: 3}
+  m_PrefabInstance: {fileID: 8062073636199384651}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da0d38b25fc847189f4e1428a6f1369e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5633700074554635311 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2435551431258763876, guid: 8a94f4f98690864478f879c0ae58f462,
