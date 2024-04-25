@@ -17,25 +17,14 @@ namespace CavrnusDemo.SdkExtensions
         [SerializeField, ReadOnly] private Quaternion startingRotation = Quaternion.identity;
         [SerializeField, ReadOnly] private Quaternion endingRotation = Quaternion.identity;
 
-        public bool AtStart{ get; private set; }
+        public bool AtEnd{ get; private set; }
 
-        public void ToggleAnimation()
+        public void SetState(bool setToEnd)
         {
-            if (AtStart)
-                MoveToStart();
-            else 
+            if (setToEnd)
                 MoveToEnd();
-
-            AtStart = !AtStart;
-            OnValueChanged?.Invoke(AtStart);
-        }
-        
-        public void SetState(bool setToStart)
-        {
-            if (setToStart)
-                MoveToStart();
             else 
-                MoveToEnd();
+                MoveToStart();
         }
 
         public void MoveToStart()
@@ -43,7 +32,7 @@ namespace CavrnusDemo.SdkExtensions
             if (currentRoutine != null) 
                 StopCoroutine(currentRoutine);
             currentRoutine = StartCoroutine(RotationRoutine(startingRotation));
-            AtStart = true;
+            AtEnd = true;
         }
 
         public void MoveToEnd()
@@ -51,7 +40,7 @@ namespace CavrnusDemo.SdkExtensions
             if (currentRoutine != null) 
                 StopCoroutine(currentRoutine);
             currentRoutine = StartCoroutine(RotationRoutine(endingRotation));
-            AtStart = false;
+            AtEnd = false;
         }
 
         public void SetBegin() => startingRotation = transform.localRotation;

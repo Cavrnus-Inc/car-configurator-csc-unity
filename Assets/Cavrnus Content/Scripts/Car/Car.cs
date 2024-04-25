@@ -79,19 +79,19 @@ namespace CavrnusDemo
                 }));
                 
                 // Driver Door Animation
-                spaceConn.DefineBoolPropertyDefaultValue(ctx.UniqueContainerName, driverDoorPropertyNameAnimation, driverDoor.AtStart);
+                spaceConn.DefineBoolPropertyDefaultValue(ctx.UniqueContainerName, driverDoorPropertyNameAnimation, false);
                 disposables.Add(spaceConn.BindBoolPropertyValue(ctx.UniqueContainerName, driverDoorPropertyNameAnimation, b => {
                     driverDoor.SetState(b);
                 }));
                 
                 // Passenger Door Animation
-                spaceConn.DefineBoolPropertyDefaultValue(ctx.UniqueContainerName, passengerDoorPropertyNameAnimation, passengerDoor.AtStart);
+                spaceConn.DefineBoolPropertyDefaultValue(ctx.UniqueContainerName, passengerDoorPropertyNameAnimation, false);
                 disposables.Add(spaceConn.BindBoolPropertyValue(ctx.UniqueContainerName, passengerDoorPropertyNameAnimation, b => {
                     passengerDoor.SetState(b);
                 }));
                 
                 // Trunk Animation
-                spaceConn.DefineBoolPropertyDefaultValue(ctx.UniqueContainerName, trunkPropertyNameAnimation, trunk.AtStart);
+                spaceConn.DefineBoolPropertyDefaultValue(ctx.UniqueContainerName, trunkPropertyNameAnimation, false);
                 disposables.Add(spaceConn.BindBoolPropertyValue(ctx.UniqueContainerName, trunkPropertyNameAnimation, b => {
                     trunk.SetState(b);
                 }));
