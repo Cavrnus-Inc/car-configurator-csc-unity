@@ -600,6 +600,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot Local Custom
       objectReference: {fileID: 0}
+    - target: {fileID: 895844663932202552, guid: f351762828fece04f87ed15f2bc91c5a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1733187498477693787, guid: f351762828fece04f87ed15f2bc91c5a,
         type: 3}
       propertyPath: m_BackGroundColor.a
@@ -715,11 +720,6 @@ PrefabInstance:
       propertyPath: UiCanvas
       value: 
       objectReference: {fileID: 440293778}
-    - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
-        type: 3}
-      propertyPath: GuestName
-      value: Cody
-      objectReference: {fileID: 0}
     - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}
       propertyPath: RemoteUserAvatar
