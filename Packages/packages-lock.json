@@ -10,8 +10,8 @@
       "url": "https://packages.cavrn.us"
     },
     "com.cavrnus.csc": {
-      "version": "2.9.0",
-      "depth": 1,
+      "version": "2.10.0",
+      "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.cavrn.us"
