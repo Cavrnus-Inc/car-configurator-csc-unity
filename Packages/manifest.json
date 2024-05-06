@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.cavrnus.chat": "1.0.1",
-    "com.cavrnus.csc": "2.10.1",
+    "com.cavrnus.csc": "2.10.2",
     "com.cavrnus.xr": "1.1.1",
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.ide.rider": "3.0.27",
