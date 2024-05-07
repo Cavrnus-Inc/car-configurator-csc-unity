@@ -5,9 +5,14 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Car Configurator Scene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    guid: 4d4b7ee793e0dc946aca4c3e20b22e37
+  - enabled: 1
+    path: Assets/Car Configurator Scene VR.unity
+    guid: 81839465c8a1fdf48b070cf49cbf1370
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 91dac9858d409a048828ec99f70f727f,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 4be3daea641bf7b4ea772c39056b2c92,
       type: 2}
