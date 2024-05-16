@@ -362,7 +362,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 2147483648
   m_DistanceCalculationMode: 1
   m_SelectMode: 1
   m_FocusMode: 1
@@ -993,6 +993,36 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4889084529196667750, guid: 357480cf7b8e1b84c97647dab4e1d4fb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062364723170941835, guid: 357480cf7b8e1b84c97647dab4e1d4fb,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062364723170941835, guid: 357480cf7b8e1b84c97647dab4e1d4fb,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062364723170941835, guid: 357480cf7b8e1b84c97647dab4e1d4fb,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062364723170941835, guid: 357480cf7b8e1b84c97647dab4e1d4fb,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062364723170941835, guid: 357480cf7b8e1b84c97647dab4e1d4fb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062364723170941835, guid: 357480cf7b8e1b84c97647dab4e1d4fb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
