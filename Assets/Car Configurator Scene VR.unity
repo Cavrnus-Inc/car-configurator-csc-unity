@@ -238,6 +238,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &367415163 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 624031803110227864, guid: 8a94f4f98690864478f879c0ae58f462,
+    type: 3}
+  m_PrefabInstance: {fileID: 5170060291874473734}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &902575294
 GameObject:
   m_ObjectHideFlags: 0
@@ -3818,7 +3824,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 624031803110227864, guid: 8a94f4f98690864478f879c0ae58f462,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5170060291874473742}
   m_SourcePrefab: {fileID: 100100000, guid: 8a94f4f98690864478f879c0ae58f462, type: 3}
 --- !u!114 &5170060291874473736 stripped
 MonoBehaviour:
@@ -3826,7 +3836,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 5170060291874473734}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 367415163}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adbf7f8a7fac94e42af5348b5ade8fb2, type: 3}
@@ -3838,6 +3848,23 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5170060291874473734}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5170060291874473742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367415163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8363f5b03b3452c98fc17ffaa6479c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  containerName: Car
+  rotationPropertyName: SunlightRotation
+  shadowPropertyName: ShadowStrength
+  lightContainer: {fileID: 142617340}
+  directionalLight: {fileID: 1570552700}
 --- !u!222 &5232053256368574066
 CanvasRenderer:
   m_ObjectHideFlags: 0
