@@ -1157,7 +1157,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7696548424635294048, guid: 357480cf7b8e1b84c97647dab4e1d4fb,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1371252712}
+      addedObject: {fileID: 1371252715}
   m_SourcePrefab: {fileID: 100100000, guid: 357480cf7b8e1b84c97647dab4e1d4fb, type: 3}
 --- !u!114 &1371252710 stripped
 MonoBehaviour:
@@ -1177,21 +1177,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1371252709}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1371252712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371252711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cd55bf99a9846e42af35a7ac3492b44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PropertyName: Transform
-  SendMyChanges: 1
-  RecieveChanges: 1
 --- !u!114 &1371252713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1217,6 +1202,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b94f81ebabca554d995c69dc4ce9cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1371252715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371252711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ecb90bf32e4cc9aaddbdbbf25231db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PropertyName: Transform
+  SendMyChanges: 1
+  RecieveChanges: 1
+  clampYPosToZero: 0
 --- !u!1001 &1531754065
 PrefabInstance:
   m_ObjectHideFlags: 0
