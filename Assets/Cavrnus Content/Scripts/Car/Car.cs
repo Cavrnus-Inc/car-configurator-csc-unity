@@ -41,9 +41,6 @@ namespace CavrnusDemo
         [SerializeField] private string trunkPropertyNameAnimation = "TrunkAnimation";
         [SerializeField] private RotationAnimator trunk;
         
-        [Header("Paint Texture")]
-        [SerializeField] private Material carPaintMaterial;
-        
         private readonly List<IDisposable> disposables = new List<IDisposable>();
         private CavrnusSpaceConnection spaceConn;
         private CavrnusPropertiesContainer ctx;
@@ -149,20 +146,6 @@ namespace CavrnusDemo
             
             var current = spaceConn.GetBoolPropertyValue(ctx.UniqueContainerName, headLightsPropertyName);
             spaceConn.PostBoolPropertyUpdate(ctx.UniqueContainerName, headLightsPropertyName, !current);
-        }
-
-        public void SetUnderGlowColor(ColorTextureChanger.ColorTextureMapper color)
-        {
-            if (spaceConn == null) return;
-            
-            spaceConn.PostColorPropertyUpdate(ctx.UniqueContainerName, underGlowPropertyNameColor, color.Color);
-        }
-
-        public void SetCarPaint(ColorTextureChanger.ColorTextureMapper mapper)
-        {
-            if (spaceConn == null) return;
-
-            carPaintMaterial.mainTexture = mapper.Texture;
         }
 
         private void OnDestroy()

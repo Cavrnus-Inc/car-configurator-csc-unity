@@ -960,39 +960,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2c46cf34154bc19d8bfd24f7edc44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useTexture: 1
-  textureChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4649613086427497425}
-        m_TargetAssemblyTypeName: Cavrnus_Content.Scripts.Car.SyncEnumTextureStrings,
-          Assembly-CSharp
-        m_MethodName: SetColor
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  colorTextureMapper:
-  - Texture: {fileID: 2800000, guid: a0c75cee9bffd2c458d09ce1927f3def, type: 3}
-    Color: {r: 0.95294124, g: 0.95294124, b: 0.95294124, a: 1}
-  - Texture: {fileID: 2800000, guid: 0a675a74a0c88ba41888634fbee5bb30, type: 3}
-    Color: {r: 0.10588236, g: 0.10588236, b: 0.10588236, a: 1}
-  - Texture: {fileID: 2800000, guid: 1f70a4c518f3ae5408c5b2bcc2cbcb3c, type: 3}
-    Color: {r: 0.654902, g: 0.121568635, b: 0.058823533, a: 1}
-  - Texture: {fileID: 2800000, guid: 4efa29aa1f051d349b472f3b99875a3b, type: 3}
-    Color: {r: 0, g: 0.19215688, b: 0.43921572, a: 1}
-  - Texture: {fileID: 2800000, guid: 071a11ae775afd641b5861fa43a312a1, type: 3}
-    Color: {r: 0.93725497, g: 0.6666667, b: 0, a: 1}
   colorPrefab: {fileID: 4359308232265974393, guid: bb3393db3ad3b734987ab17c79ec79fb,
     type: 3}
   container: {fileID: 6858297888047324894}
-  containerName: Car
-  propertyName: CarColor
 --- !u!114 &4649613086427497425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1005,21 +975,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0d38b25fc847189f4e1428a6f1369e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cavColorChangerUI: {fileID: 5542287264441910931}
   containerName: Car
   propertyName: CarColor
   displayName: CarColor
   description: The car's paint color
-  textureMap:
-  - TextureName: black
-    TextureValue: {fileID: 2800000, guid: 0a675a74a0c88ba41888634fbee5bb30, type: 3}
-  - TextureName: blue
-    TextureValue: {fileID: 2800000, guid: 4efa29aa1f051d349b472f3b99875a3b, type: 3}
-  - TextureName: red
-    TextureValue: {fileID: 2800000, guid: 1f70a4c518f3ae5408c5b2bcc2cbcb3c, type: 3}
-  - TextureName: white
-    TextureValue: {fileID: 2800000, guid: a0c75cee9bffd2c458d09ce1927f3def, type: 3}
-  - TextureName: yellow
-    TextureValue: {fileID: 2800000, guid: 071a11ae775afd641b5861fa43a312a1, type: 3}
+  colorTextureInfo:
+  - DisplayName: black
+    Color: {r: 0, g: 0, b: 0, a: 1}
+    Texture: {fileID: 2800000, guid: 0a675a74a0c88ba41888634fbee5bb30, type: 3}
+  - DisplayName: blue
+    Color: {r: 0, g: 0.19215688, b: 0.43921572, a: 1}
+    Texture: {fileID: 2800000, guid: 4efa29aa1f051d349b472f3b99875a3b, type: 3}
+  - DisplayName: red
+    Color: {r: 0.654902, g: 0.121568635, b: 0.058823533, a: 1}
+    Texture: {fileID: 2800000, guid: 1f70a4c518f3ae5408c5b2bcc2cbcb3c, type: 3}
+  - DisplayName: white
+    Color: {r: 1, g: 1, b: 1, a: 1}
+    Texture: {fileID: 2800000, guid: a0c75cee9bffd2c458d09ce1927f3def, type: 3}
+  - DisplayName: yellow
+    Color: {r: 0.93725497, g: 0.6666667, b: 0, a: 1}
+    Texture: {fileID: 2800000, guid: 071a11ae775afd641b5861fa43a312a1, type: 3}
   targetMaterial: {fileID: 2100000, guid: 5502db90b1c3c27419be0eb96ef2a814, type: 2}
 --- !u!1 &3464587992684976849
 GameObject:
@@ -1244,6 +1220,7 @@ GameObject:
   - component: {fileID: 4697327287122140519}
   - component: {fileID: 3046623785512578414}
   - component: {fileID: 1274907333148430666}
+  - component: {fileID: 9170779285645371974}
   m_Layer: 5
   m_Name: UnderGlow Color Menu
   m_TagString: Untagged
@@ -1315,36 +1292,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2c46cf34154bc19d8bfd24f7edc44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useTexture: 0
-  textureChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1274907333148430666}
-        m_TargetAssemblyTypeName: CavrnusDemo.ColorTextureChanger, Assembly-CSharp
-        m_MethodName: SetColor
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  colorTextureMapper:
-  - Texture: {fileID: 0}
-    Color: {r: 0.12641507, g: 1, b: 0.22549604, a: 1}
-  - Texture: {fileID: 0}
-    Color: {r: 0.9169811, g: 0, b: 0, a: 1}
-  - Texture: {fileID: 0}
-    Color: {r: 0, g: 0.564518, b: 1, a: 1}
-  - Texture: {fileID: 0}
-    Color: {r: 0.82641506, g: 0, b: 0.7875397, a: 1}
   colorPrefab: {fileID: 4359308232265974393, guid: bb3393db3ad3b734987ab17c79ec79fb,
     type: 3}
   container: {fileID: 4697327287122140519}
+--- !u!114 &9170779285645371974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4135626826947743171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbbb5460db41482da2f8f1788d5ebbac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cavColorChangerUI: {fileID: 1274907333148430666}
   containerName: Car
   propertyName: UnderGlowColor
+  colorTextureInfo:
+  - DisplayName: green
+    Color: {r: 0.3754716, g: 1, b: 0.3754716, a: 1}
+    Texture: {fileID: 0}
+  - DisplayName: red
+    Color: {r: 1, g: 0.33018857, b: 0.33018857, a: 1}
+    Texture: {fileID: 0}
+  - DisplayName: blue
+    Color: {r: 0.16651474, g: 0.49184695, b: 0.96981126, a: 1}
+    Texture: {fileID: 0}
+  - DisplayName: pink
+    Color: {r: 1, g: 0.2999999, b: 1, a: 1}
+    Texture: {fileID: 0}
 --- !u!1 &4606579042223957646
 GameObject:
   m_ObjectHideFlags: 0

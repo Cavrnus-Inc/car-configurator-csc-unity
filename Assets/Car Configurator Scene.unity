@@ -251,6 +251,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cavrnus UI Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1993130951613162645, guid: 0e813ce4abd790a44bde650b6b785a17,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5165725231544685610, guid: 0e813ce4abd790a44bde650b6b785a17,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1564,13 +1569,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2874090298651107965, guid: 1b252388c8711104fbd931acbf2ac0ba,
         type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874090298651107965, guid: 1b252388c8711104fbd931acbf2ac0ba,
+        type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2874090298651107965, guid: 1b252388c8711104fbd931acbf2ac0ba,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 2874090298651107965, guid: 1b252388c8711104fbd931acbf2ac0ba,
         type: 3}

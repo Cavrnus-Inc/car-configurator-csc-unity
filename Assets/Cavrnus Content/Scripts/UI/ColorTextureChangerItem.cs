@@ -12,17 +12,19 @@ namespace CavrnusDemo
         [SerializeField] private Image image;
         [SerializeField] private GameObject selectedBorder;
 
-        private ColorTextureChanger.ColorTextureMapper mapper;
-        private Action<ColorTextureChanger.ColorTextureMapper> onSelected;
+        public ColorTextureInfo Info{ get; private set; }
+        private Action<ColorTextureInfo> onSelected;
 
-        public void Setup(ColorTextureChanger.ColorTextureMapper mapper, Action<ColorTextureChanger.ColorTextureMapper> onSelected)
+        public void Setup(ColorTextureInfo info, Action<ColorTextureInfo> onSelected)
         {
-            this.mapper = mapper;
+            this.Info = info;
             this.onSelected = onSelected;
 
-            Color = mapper.Color;
-            Texture = mapper.Texture;
-            image.color = mapper.Color;
+            Color = info.Color;
+            Texture = info.Texture;
+            image.color = info.Color;
+            
+            selectedBorder.SetActive(false);
         }
         
         public void SetSelectionState(bool state)
@@ -32,7 +34,7 @@ namespace CavrnusDemo
 
         public void Select()
         {
-            onSelected?.Invoke(mapper);
+            onSelected?.Invoke(Info);
         }
     }
 }

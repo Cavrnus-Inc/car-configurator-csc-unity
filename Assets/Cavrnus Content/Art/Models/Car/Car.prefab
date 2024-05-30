@@ -584,7 +584,6 @@ GameObject:
   - component: {fileID: 4508774121390452999}
   - component: {fileID: 2435551431258763876}
   - component: {fileID: 1443155209404052193}
-  - component: {fileID: 7862724998159316305}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -663,7 +662,6 @@ MonoBehaviour:
   passengerDoor: {fileID: 6713522911283838276}
   trunkPropertyNameAnimation: TrunkAnimation
   trunk: {fileID: 7963894418291118237}
-  carPaintMaterial: {fileID: 2100000, guid: 5502db90b1c3c27419be0eb96ef2a814, type: 2}
 --- !u!114 &1443155209404052193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,34 +677,6 @@ MonoBehaviour:
   PropertyName: Transform
   SendMyChanges: 1
   RecieveChanges: 1
---- !u!114 &7862724998159316305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624031803110227864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da0d38b25fc847189f4e1428a6f1369e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  containerName: Car
-  propertyName: CarColor
-  displayName: CarColor
-  description: The car's paint color
-  textureMap:
-  - TextureName: black
-    TextureValue: {fileID: 2800000, guid: 0a675a74a0c88ba41888634fbee5bb30, type: 3}
-  - TextureName: blue
-    TextureValue: {fileID: 2800000, guid: 4efa29aa1f051d349b472f3b99875a3b, type: 3}
-  - TextureName: red
-    TextureValue: {fileID: 2800000, guid: 1f70a4c518f3ae5408c5b2bcc2cbcb3c, type: 3}
-  - TextureName: white
-    TextureValue: {fileID: 2800000, guid: a0c75cee9bffd2c458d09ce1927f3def, type: 3}
-  - TextureName: yellow
-    TextureValue: {fileID: 2800000, guid: 071a11ae775afd641b5861fa43a312a1, type: 3}
-  targetMaterial: {fileID: 2100000, guid: 5502db90b1c3c27419be0eb96ef2a814, type: 2}
 --- !u!1 &651744713069772159
 GameObject:
   m_ObjectHideFlags: 0
