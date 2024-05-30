@@ -9,6 +9,7 @@ namespace CavrnusDemo
 {
     public class SyncEnumTextureStrings : MonoBehaviour
     {
+        [Header("Optional Corresponding UI")]
         [SerializeField] private CavColorChangerUI cavColorChangerUI;
         
         [Header("Cav Properties")]
@@ -29,7 +30,7 @@ namespace CavrnusDemo
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(spaceConn => {
                 this.spaceConn = spaceConn;
                 
-                cavColorChangerUI.Setup(colorTextureInfo, Post);
+                cavColorChangerUI?.Setup(colorTextureInfo, Post);
                 
                 var enumOptions = new List<StringEditingEnumerationOption>();
                 colorTextureInfo.ForEach(tm => enumOptions.Add(new StringEditingEnumerationOption {
@@ -42,7 +43,7 @@ namespace CavrnusDemo
                 disp = spaceConn.BindStringPropertyValue(containerName, propertyName, serverTextureName => {
                     var foundItem = colorTextureInfo.FirstOrDefault(info => info.DisplayName.ToLowerInvariant().Equals(serverTextureName.ToLowerInvariant()));
                     if (foundItem != null)
-                        cavColorChangerUI.SetSelected(foundItem);
+                        cavColorChangerUI?.SetSelected(foundItem);
                     
                     var newTexture = colorTextureInfo.FirstOrDefault(tm => tm.DisplayName == serverTextureName);
                     if (newTexture != null) 

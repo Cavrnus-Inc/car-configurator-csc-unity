@@ -25,14 +25,17 @@ namespace CavrnusDemo
         {
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(spaceConn => {
                 this.spaceConn = spaceConn;
-                
-                cavColorChangerUI.Setup(colorTextureInfo, Post);
+
+                if (cavColorChangerUI != null)
+                    cavColorChangerUI.Setup(colorTextureInfo, Post);
                 
                 spaceConn.DefineColorPropertyDefaultValue(containerName, propertyName, Color.white);
                 disp = spaceConn.BindColorPropertyValue(containerName, propertyName, serverColor => {
-                    var foundItem = colorTextureInfo.FirstOrDefault(info => ColorsEqual(info.Color, serverColor));
-                    if (foundItem != null)
-                        cavColorChangerUI.SetSelected(foundItem);
+                    if (cavColorChangerUI != null) {
+                        var foundItem = colorTextureInfo.FirstOrDefault(info => ColorsEqual(info.Color, serverColor));
+                        if (foundItem != null)
+                            cavColorChangerUI.SetSelected(foundItem);
+                    }
                 });
             });
         }

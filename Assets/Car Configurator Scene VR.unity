@@ -3820,18 +3820,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a94f4f98690864478f879c0ae58f462, type: 3}
---- !u!114 &5170060291874473735 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7862724998159316305, guid: 8a94f4f98690864478f879c0ae58f462,
-    type: 3}
-  m_PrefabInstance: {fileID: 5170060291874473734}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da0d38b25fc847189f4e1428a6f1369e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5170060291874473736 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2435551431258763876, guid: 8a94f4f98690864478f879c0ae58f462,
@@ -5327,7 +5315,7 @@ PrefabInstance:
         type: 3}
       propertyPath: textureChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 5170060291874473735}
+      objectReference: {fileID: 0}
     - target: {fileID: 8874759760006830876, guid: c8f03c71b2105e74e8dac401302b3efa,
         type: 3}
       propertyPath: textureChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
