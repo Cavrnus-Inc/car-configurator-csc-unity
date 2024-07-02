@@ -88,7 +88,7 @@ namespace CavrnusSdk.UI
 			if (fadeOutRoutine != null)
 				StopCoroutine(fadeOutRoutine);
 
-			fadeInRoutine = AnimationHelper.DoFade(canvasGroups, 0.1f, true);
+			fadeInRoutine = this.DoFade(canvasGroups, 0.1f, true);
 			StartCoroutine(fadeInRoutine);
 		}
 
@@ -97,7 +97,7 @@ namespace CavrnusSdk.UI
 			if (fadeInRoutine != null)
 				StopCoroutine(fadeInRoutine);
             
-			fadeOutRoutine = AnimationHelper.DoFade(canvasGroups, 0.2f, false);
+			fadeOutRoutine = this.DoFade(canvasGroups, 0.2f, false);
 			StartCoroutine(fadeOutRoutine);
 		}
 	}

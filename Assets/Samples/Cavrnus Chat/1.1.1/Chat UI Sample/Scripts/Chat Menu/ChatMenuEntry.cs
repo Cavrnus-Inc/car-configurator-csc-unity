@@ -49,16 +49,24 @@ namespace Cavrnus.Chat
             disposables.Add(chat.TextSource.Bind(msg => message.text = msg));
             disposables.Add(chat.CreateTime.Bind(msg => creationTime.text = UnityBase.HelperFunctions.ToPrettyDay(msg.ToLocalTime())));
 
-            StartCoroutine(AnimationHelper.DoFade(rootCanvasGroup, 1f, true));
             extraButtonsCanvasGroup.ForEach(cg => cg.alpha = 0f);
         }
         
+        private void OnEnable()
+        {
+            StartCoroutine(this.DoFade(rootCanvasGroup, 1f, true));
+        }
+
         private void UserAdded(CavrnusUser u)
         {
-            if (u.UserId == chat.CreatorId.Value) {
+            if (u.UserAccountId == chat.CreatorId.Value) {
                 disposables.Add(u.BindUserName(n => creatorName.text = n));
                 disposables.Add(u.BindProfilePic(this, profilePic =>
                 {
+                    if (profilePicImage == null) {
+                        return;
+                    }
+                    
                     profilePicImage.sprite = profilePic;
                     if (profilePic != null)
                         profilePicImage.GetComponent<AspectRatioFitter>().aspectRatio =
@@ -96,7 +104,7 @@ namespace Cavrnus.Chat
             if (fadeOutRoutine != null)
              StopCoroutine(fadeOutRoutine);
 
-            fadeInRoutine = AnimationHelper.DoFade(extraButtonsCanvasGroup, 0.1f, true);
+            fadeInRoutine = this.DoFade(extraButtonsCanvasGroup, 0.1f, true);
             StartCoroutine(fadeInRoutine);
         }
         
@@ -105,7 +113,7 @@ namespace Cavrnus.Chat
             if (fadeInRoutine != null)
                 StopCoroutine(fadeInRoutine);
             
-            fadeOutRoutine = AnimationHelper.DoFade(extraButtonsCanvasGroup, 0.2f, false);
+            fadeOutRoutine = this.DoFade(extraButtonsCanvasGroup, 0.2f, false);
             StartCoroutine(fadeOutRoutine);
         }
 

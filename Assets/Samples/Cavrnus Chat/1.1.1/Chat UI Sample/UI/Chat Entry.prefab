@@ -197,7 +197,6 @@ MonoBehaviour:
   profilePicImage: {fileID: 3354819381655857664}
   chatBubbleBackground: {fileID: 3289699479359408707}
   localUserColor: {r: 0, g: 0.49362755, b: 1, a: 1}
-  otherUserColor: {r: 0.59607846, g: 0.5921569, b: 0.59607846, a: 1}
   rootCanvasGroup:
   - {fileID: 562936239646992499}
   extraButtonsCanvasGroup:
@@ -351,7 +350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2315854413076211307
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1659,7 +1658,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8584111149706506629
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1675,10 +1674,10 @@ RectTransform:
   - {fileID: 2315854413076211307}
   m_Father: {fileID: 8753770915084706747}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 95, y: -20}
+  m_SizeDelta: {x: 30, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5700765002795260179
 MonoBehaviour:

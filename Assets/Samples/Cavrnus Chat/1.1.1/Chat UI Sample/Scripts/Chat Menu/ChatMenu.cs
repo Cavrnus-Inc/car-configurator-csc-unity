@@ -38,7 +38,6 @@ namespace Cavrnus.Chat
                     disposables.Add(spaceConn.BindChatMessages(MessagesOnItemAddedEvent, MessagesOnItemRemovedEvent));
                     
                     submitButton.onClick.AddListener(SubmitChat);
-                    submitButton.interactable = true;
                     
                     inputField.onValueChanged.AddListener(OnInputChanged);
                     inputFieldHelper.OnEndEdit.AddListener(OnInputFieldSubmit);
@@ -71,7 +70,7 @@ namespace Cavrnus.Chat
 
         private void MessagesOnItemRemovedEvent(IChatViewModel item)
         {
-            var obj = createdChats[item.OpConnectionId];
+            var obj = createdChats[item.ObjectProperties.Id];
             
             Destroy(obj);
             createdChats.Remove(item.ObjectProperties.Id);

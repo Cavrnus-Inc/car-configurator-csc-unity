@@ -6,7 +6,7 @@ namespace Cavrnus.Chat
 {
     public static class AnimationHelper
     {
-        public static IEnumerator DoFade(List<CanvasGroup> cgs, float duration, bool fadeIn)
+        public static IEnumerator DoFade(this MonoBehaviour go, List<CanvasGroup> cgs, float duration, bool fadeIn)
         {
             var start = fadeIn ? 0f : 1f;
             var end = fadeIn ? 1f : 0f;
@@ -14,6 +14,9 @@ namespace Cavrnus.Chat
             
             var elapsedTime = 0f;
             while (elapsedTime < duration) {
+                if (go == null || go.Equals(null))
+                    yield break;
+                
                 var normalizedTime = elapsedTime / duration;
                 cgs.ForEach(cg => cg.alpha = Mathf.Lerp(start, end,normalizedTime));
 
