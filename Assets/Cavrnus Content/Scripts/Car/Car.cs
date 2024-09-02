@@ -28,6 +28,9 @@ namespace CavrnusDemo
         [Space]
         [SerializeField] private Light underGlowLight;
         [SerializeField] private GameObject underGlowGameObject;
+        
+        [Space]
+        [SerializeField] private string explodeContainerName = "PassengerDoorAnimation";
 
         [Header("Animations")]
         [SerializeField] private string driverDoorPropertyNameAnimation = "DriverDoorAnimation";
@@ -93,9 +96,21 @@ namespace CavrnusDemo
                     trunk.SetState(b);
                 }));
                 
+                spaceConn.DefineBoolPropertyDefaultValue(ctx.UniqueContainerName, explodeContainerName, false);
+                disposables.Add(spaceConn.BindBoolPropertyValue(ctx.UniqueContainerName, explodeContainerName, b => {
+                    SetExplode(b);
+                }));
+                
                 headLightsToggle.onValueChanged.AddListener(ToggleCarLights);
                 underGlowToggle.onValueChanged.AddListener(ToggleUnderGlow);
             });
+        }
+
+        public void SetExplode(bool state)
+        {
+            spaceConn.PostBoolPropertyUpdate(ctx.UniqueContainerName, driverDoorPropertyNameAnimation, state);
+            spaceConn.PostBoolPropertyUpdate(ctx.UniqueContainerName, passengerDoorPropertyNameAnimation, state);
+            spaceConn.PostBoolPropertyUpdate(ctx.UniqueContainerName, trunkPropertyNameAnimation, state);
         }
         
         public void ToggleDriverDoorAnim()
