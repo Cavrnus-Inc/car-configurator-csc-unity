@@ -239,7 +239,6 @@ PlayerSettings:
   iOSMetalForceHardShadows: 0
   metalEditorSupport: 1
   metalAPIValidation: 1
-  metalCompileShaderBinary: 0
   iOSRenderExtraFrameOnPause: 0
   iosCopyPluginsCodeInsteadOfSymlink: 0
   appleDeveloperTeamID: 64K6UFGQWD
@@ -519,7 +518,10 @@ PlayerSettings:
       m_SubKind: 
   - m_BuildTarget: VisionOS
     m_Icons:
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: 6c6003812624848beab6533399bcad60, type: 3}
+      - {fileID: 2800000, guid: 6c6003812624848beab6533399bcad60, type: 3}
+      - {fileID: 2800000, guid: 6c6003812624848beab6533399bcad60, type: 3}
       m_Width: 1024
       m_Height: 1024
       m_Kind: 0
@@ -872,7 +874,6 @@ PlayerSettings:
   metroSplashScreenBackgroundColor: {r: 0.12941177, g: 0.17254902, b: 0.21568628,
     a: 1}
   metroSplashScreenUseBackgroundColor: 0
-  syncCapabilities: 0
   platformCapabilities: {}
   metroTargetDeviceFamilies: {}
   metroFTAName: 
