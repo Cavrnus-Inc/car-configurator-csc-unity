@@ -52,8 +52,6 @@ namespace Cavrnus_Content.Scripts.VisionProComponents
         protected override void OnSelectEntered(SelectEnterEventArgs args)
         {
             base.OnSelectEntered(args);
-            print("poop ");
-
             SetToggledStatus(!IsOn);
         }
 
@@ -62,9 +60,6 @@ namespace Cavrnus_Content.Scripts.VisionProComponents
             IsOn = state;
             m_StartLerpTime = Time.time;
             m_IsAnimating = true;
-            
-            print("poop ");
-
             
             if (notify)
                 OnToggleChanged?.Invoke(IsOn);
