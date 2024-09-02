@@ -536,8 +536,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1bf9561cf94b7881ba5bdbe0767d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  containerName: car
-  propertyName: explode
+  containerName: Car
+  propertyName: Explode
   toggle: {fileID: 1246874234271201702}
 --- !u!1 &4582996542577750578
 GameObject:

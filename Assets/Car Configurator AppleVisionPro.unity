@@ -261,6 +261,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3901778574733950996}
     m_Modifications:
+    - target: {fileID: 598970530289068539, guid: daafce6df7d51c04b9f4d42bdae403ec,
+        type: 3}
+      propertyPath: propertyName
+      value: Rotation
+      objectReference: {fileID: 0}
     - target: {fileID: 2233784237110612150, guid: daafce6df7d51c04b9f4d42bdae403ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -964,6 +969,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 994052892880613903, guid: 1b252388c8711104fbd931acbf2ac0ba,
+        type: 3}
+      propertyPath: cavColorChangerUI
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1102148907594113539, guid: 1b252388c8711104fbd931acbf2ac0ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1574,6 +1584,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4688588154493006850, guid: 1b252388c8711104fbd931acbf2ac0ba,
+        type: 3}
+      propertyPath: cavColorChangerUI
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4718100364237168051, guid: 1b252388c8711104fbd931acbf2ac0ba,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1743,6 +1758,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633700074554635311, guid: 1b252388c8711104fbd931acbf2ac0ba,
+        type: 3}
+      propertyPath: underGlowToggle
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633700074554635311, guid: 1b252388c8711104fbd931acbf2ac0ba,
+        type: 3}
+      propertyPath: headLightsToggle
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5648172149821603496, guid: 1b252388c8711104fbd931acbf2ac0ba,
         type: 3}
@@ -2204,8 +2229,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 610512355888650951, guid: 1b252388c8711104fbd931acbf2ac0ba, type: 3}
+    - {fileID: 2489876776420123810, guid: 1b252388c8711104fbd931acbf2ac0ba, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 5838761034165727502, guid: 1b252388c8711104fbd931acbf2ac0ba, type: 3}
+    - {fileID: 4686316603509832163, guid: 1b252388c8711104fbd931acbf2ac0ba, type: 3}
+    - {fileID: 5288474219288549911, guid: 1b252388c8711104fbd931acbf2ac0ba, type: 3}
+    - {fileID: 8865447627432704106, guid: 1b252388c8711104fbd931acbf2ac0ba, type: 3}
+    - {fileID: 6986000369237764019, guid: 1b252388c8711104fbd931acbf2ac0ba, type: 3}
+    - {fileID: 5131032720333515967, guid: 1b252388c8711104fbd931acbf2ac0ba, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b252388c8711104fbd931acbf2ac0ba, type: 3}
@@ -2857,6 +2890,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3901778574733950996}
     m_Modifications:
+    - target: {fileID: 598970530289068539, guid: daafce6df7d51c04b9f4d42bdae403ec,
+        type: 3}
+      propertyPath: propertyName
+      value: Scale
+      objectReference: {fileID: 0}
     - target: {fileID: 2233784237110612150, guid: daafce6df7d51c04b9f4d42bdae403ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2910,7 +2948,7 @@ PrefabInstance:
     - target: {fileID: 6039247306059713058, guid: daafce6df7d51c04b9f4d42bdae403ec,
         type: 3}
       propertyPath: m_text
-      value: Size
+      value: Scale
       objectReference: {fileID: 0}
     - target: {fileID: 9020510658788590134, guid: daafce6df7d51c04b9f4d42bdae403ec,
         type: 3}

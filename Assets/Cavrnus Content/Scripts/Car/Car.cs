@@ -30,7 +30,7 @@ namespace CavrnusDemo
         [SerializeField] private GameObject underGlowGameObject;
         
         [Space]
-        [SerializeField] private string explodeContainerName = "PassengerDoorAnimation";
+        [SerializeField] private string explodeContainerName = "Explode";
 
         [Header("Animations")]
         [SerializeField] private string driverDoorPropertyNameAnimation = "DriverDoorAnimation";
@@ -43,6 +43,12 @@ namespace CavrnusDemo
         [Space]
         [SerializeField] private string trunkPropertyNameAnimation = "TrunkAnimation";
         [SerializeField] private RotationAnimator trunk;
+        
+        [Space]
+        [SerializeField] private string carRotationName = "Rotation";
+        
+        [Space]
+        [SerializeField] private string carScaleName = "Scale";
         
         private readonly List<IDisposable> disposables = new List<IDisposable>();
         private CavrnusSpaceConnection spaceConn;
@@ -59,17 +65,17 @@ namespace CavrnusDemo
                 emissiveMaterial.EnableKeyword("_EMISSION");
                 spaceConn.DefineBoolPropertyDefaultValue(ctx.UniqueContainerName, headLightsPropertyName, headLightsGameObject.activeSelf);
                 disposables.Add(spaceConn.BindBoolPropertyValue(ctx.UniqueContainerName, headLightsPropertyName, b => {
-                    headLightsGameObject.SetActive(b);
+                    headLightsGameObject?.SetActive(b);
                     emissiveMaterial.SetColor(emissionColorMaterialProperty, Color.white * Mathf.Pow(2.0F, b ? 8 : 0));
 
-                    headLightsToggle.SetIsOnWithoutNotify(b);
+                    headLightsToggle?.SetIsOnWithoutNotify(b);
                 }));
                 
                 // Underglow Vis
                 spaceConn.DefineBoolPropertyDefaultValue(ctx.UniqueContainerName, underGlowPropertyNameVis, underGlowGameObject.activeSelf);
                 disposables.Add(spaceConn.BindBoolPropertyValue(ctx.UniqueContainerName, underGlowPropertyNameVis, b => {
-                    underGlowGameObject.SetActive(b);
-                    underGlowToggle.SetIsOnWithoutNotify(b);
+                    underGlowGameObject?.SetActive(b);
+                    underGlowToggle?.SetIsOnWithoutNotify(b);
                 }));
                 
                 // Underglow Color
@@ -96,19 +102,30 @@ namespace CavrnusDemo
                     trunk.SetState(b);
                 }));
                 
+                // Car Explode
                 spaceConn.DefineBoolPropertyDefaultValue(ctx.UniqueContainerName, explodeContainerName, false);
                 disposables.Add(spaceConn.BindBoolPropertyValue(ctx.UniqueContainerName, explodeContainerName, b => {
                     SetExplode(b);
                 }));
                 
-                headLightsToggle.onValueChanged.AddListener(ToggleCarLights);
-                underGlowToggle.onValueChanged.AddListener(ToggleUnderGlow);
+                spaceConn.DefineFloatPropertyDefaultValue(ctx.UniqueContainerName, carRotationName, 0f);
+                disposables.Add(spaceConn.BindFloatPropertyValue(ctx.UniqueContainerName, carRotationName, f => {
+                    RotateCar(f);
+                }));
+                
+                spaceConn.DefineFloatPropertyDefaultValue(ctx.UniqueContainerName, carScaleName, 0f);
+                disposables.Add(spaceConn.BindFloatPropertyValue(ctx.UniqueContainerName, carScaleName, f => {
+                    ScaleCar(f);
+                }));
+                
+                headLightsToggle?.onValueChanged.AddListener(ToggleCarLights);
+                underGlowToggle?.onValueChanged.AddListener(ToggleUnderGlow);
             });
         }
 
         public void SetExplode(bool state)
         {
-            spaceConn.PostBoolPropertyUpdate(ctx.UniqueContainerName, driverDoorPropertyNameAnimation, state);
+            spaceConn.PostBoolPropertyUpdate(ctx.UniqueContainerName, driverDoorPropertyNameAnimation,state);
             spaceConn.PostBoolPropertyUpdate(ctx.UniqueContainerName, passengerDoorPropertyNameAnimation, state);
             spaceConn.PostBoolPropertyUpdate(ctx.UniqueContainerName, trunkPropertyNameAnimation, state);
         }
@@ -161,6 +178,16 @@ namespace CavrnusDemo
             
             var current = spaceConn.GetBoolPropertyValue(ctx.UniqueContainerName, headLightsPropertyName);
             spaceConn.PostBoolPropertyUpdate(ctx.UniqueContainerName, headLightsPropertyName, !current);
+        }
+
+        public void RotateCar(float val)
+        {
+            transform.Rotate(Vector3.up, val);
+        }
+        
+        public void ScaleCar(float val)
+        {
+            transform.localScale = Vector3.one * val;
         }
 
         private void OnDestroy()

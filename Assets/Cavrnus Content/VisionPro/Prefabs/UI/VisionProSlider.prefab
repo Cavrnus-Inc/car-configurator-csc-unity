@@ -787,6 +787,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f66f46c410847e1ab589e471d6a2def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  containerName: car
-  propertyName: size
+  containerName: Car
+  propertyName: 
   sliderComponentComponent: {fileID: 2813045715650372534}
