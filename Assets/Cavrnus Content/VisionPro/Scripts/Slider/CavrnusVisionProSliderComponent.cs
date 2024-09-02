@@ -1,28 +1,20 @@
-using Unity.XR.CoreUtils;
+﻿using Unity.XR.CoreUtils;
+using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Filtering;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-namespace UnityEngine.XR.Interaction.Toolkit.Samples.VisionOS
+namespace Cavrnus_Content.Scripts.VisionProComponents
 {
-    /// <summary>
-    /// Slider component that can be poked or indirectly interacted with to change its value.
-    /// Designed to work well with direct or indirect touch interaction.
-    /// </summary>
     [RequireComponent(typeof(BoxCollider))]
-    public class SliderComponent : XRBaseInteractable
+    public class CavrnusVisionProSliderComponent : XRBaseInteractable
     {
         [Header("Slider Configuration")]
         [SerializeField]
         MeshRenderer m_FillRenderer;
 
-        [SerializeField]
-        float m_SliderIndirectChangeScale = 1f;
-
-        [SerializeField]
-        float m_InitialSliderPercent = 0.5f;
-
-        [SerializeField]
-        FloatUnityEvent m_OnSliderValueChanged;
+        [SerializeField] float m_SliderIndirectChangeScale = 1f;
+        [SerializeField] public FloatUnityEvent m_OnSliderValueChanged;
         
         public float SliderValue{ get; private set; }
 
@@ -37,7 +29,6 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.VisionOS
             m_MaterialInstance = m_FillRenderer.material;
             m_PercentageId = Shader.PropertyToID("_Percentage");
             m_BoxColliderSizeX = GetComponent<BoxCollider>().size.x;
-            SetFillPercentage(m_InitialSliderPercent);
         }
 
         /// <inheritdoc />
@@ -50,20 +41,22 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.VisionOS
 
         void Update()
         {
-            if (!isSelected)
-                return;
+            if (!isSelected) return;
 
             var interactorSelecting = interactorsSelecting[0];
             var interactorPosition = interactorsSelecting[0].transform.position;
 
-            if (interactorSelecting is IPokeStateDataProvider)
-            {
-                UpdateSliderAmtDirect(interactorPosition);
-            }
-            else
-            {
-                UpdateSliderAmtDelta(interactorPosition);
-            }
+            if (interactorSelecting is IPokeStateDataProvider) { UpdateSliderAmtDirect(interactorPosition); }
+            else { UpdateSliderAmtDelta(interactorPosition); }
+        }
+
+        public void SetFillPercentage(float percentage, bool notifyValue = true)
+        {
+            SliderValue = Mathf.Clamp01(percentage);
+            m_MaterialInstance.SetFloat(m_PercentageId, MapRange(percentage, 0f, 1f, -0.01f, 1.01f));
+           
+            if (notifyValue)
+                m_OnSliderValueChanged?.Invoke(1f - SliderValue);
         }
 
         void UpdateSliderAmtDirect(Vector3 interactorPos)
@@ -72,7 +65,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.VisionOS
             var percentage = localPosition.x / m_BoxColliderSizeX + 0.5f;
             SetFillPercentage(percentage);
         }
-        
+
         void UpdateSliderAmtDelta(Vector3 currentInteractorPos)
         {
             var currentLocalPos = transform.InverseTransformPoint(currentInteractorPos);
@@ -85,13 +78,6 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.VisionOS
         float MapRange(float value, float inputMin, float inputMax, float outputMin, float outputMax)
         {
             return outputMin + ((value - inputMin) / (inputMax - inputMin) * (outputMax - outputMin));
-        }
-        
-        void SetFillPercentage(float percentage)
-        {
-            SliderValue = Mathf.Clamp01(percentage);
-            m_MaterialInstance.SetFloat(m_PercentageId, MapRange(percentage, 0f, 1f, -0.01f, 1.01f));
-            m_OnSliderValueChanged?.Invoke(1f - SliderValue);
         }
     }
 }
