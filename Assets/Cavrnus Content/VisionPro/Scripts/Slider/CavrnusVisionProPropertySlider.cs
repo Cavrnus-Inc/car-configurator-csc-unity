@@ -9,6 +9,8 @@ namespace Cavrnus_Content.Scripts.VisionProComponents
     {
         [SerializeField] private string containerName;
         [SerializeField] private string propertyName;
+
+        [SerializeField] private float defaultValue = 1;
         
         [Space]
         [SerializeField] private CavrnusVisionProSliderComponent sliderComponentComponent;
@@ -21,7 +23,7 @@ namespace Cavrnus_Content.Scripts.VisionProComponents
         {
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc => {
                 spaceConn = sc;
-                sc.DefineFloatPropertyDefaultValue(containerName,propertyName,0.5f);
+                sc.DefineFloatPropertyDefaultValue(containerName, propertyName, defaultValue);
                 binding = sc.BindFloatPropertyValue(containerName, propertyName, val => {
                     sliderComponentComponent.SetFillPercentage(val, false);
                 });

@@ -182,7 +182,9 @@ namespace CavrnusDemo
 
         public void RotateCar(float val)
         {
-            transform.Rotate(Vector3.up, val);
+            var currentRotation = transform.eulerAngles;
+            currentRotation.y = val;
+            transform.eulerAngles = currentRotation;
         }
         
         public void ScaleCar(float val)
@@ -194,8 +196,8 @@ namespace CavrnusDemo
         {
             disposables.ForEach(d => d.Dispose());
             
-            headLightsToggle.onValueChanged.RemoveListener(ToggleCarLights);
-            underGlowToggle.onValueChanged.RemoveListener(ToggleUnderGlow);
+            headLightsToggle?.onValueChanged.RemoveListener(ToggleCarLights);
+            underGlowToggle?.onValueChanged.RemoveListener(ToggleUnderGlow);
         }
     }
 }

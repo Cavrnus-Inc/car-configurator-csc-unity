@@ -263,6 +263,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 598970530289068539, guid: daafce6df7d51c04b9f4d42bdae403ec,
         type: 3}
+      propertyPath: defaultValue
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 598970530289068539, guid: daafce6df7d51c04b9f4d42bdae403ec,
+        type: 3}
       propertyPath: propertyName
       value: Rotation
       objectReference: {fileID: 0}
@@ -574,6 +579,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5855605566567049347, guid: 04a855f9b4718e0429e4d14ab7bf24ef,
         type: 3}
+    - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
+        type: 3}
+      propertyPath: AdditionalSettings.DisableVoiceAndVideo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
+        type: 3}
+      propertyPath: AdditionalSettings.DisableAcousticEchoCancellation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4731373496736375337, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}
       propertyPath: m_Name
@@ -2890,6 +2905,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3901778574733950996}
     m_Modifications:
+    - target: {fileID: 598970530289068539, guid: daafce6df7d51c04b9f4d42bdae403ec,
+        type: 3}
+      propertyPath: defaultValue
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 598970530289068539, guid: daafce6df7d51c04b9f4d42bdae403ec,
         type: 3}
       propertyPath: propertyName
