@@ -21,7 +21,7 @@ namespace Cavrnus_Content.Scripts.VisionProComponents
                 spaceConn = sc;
                 sc.DefineBoolPropertyDefaultValue(containerName,propertyName,false);
                 binding = sc.BindBoolPropertyValue(containerName, propertyName, b => {
-                    toggle.IsOn = b;
+                    toggle.SetToggledStatus(b, false);
                 });
                 
                 toggle.OnToggleChanged.AddListener(ToggleClicked);
@@ -30,6 +30,7 @@ namespace Cavrnus_Content.Scripts.VisionProComponents
         
         private void ToggleClicked(bool val)
         {
+            print("cmoonnnnn " + val);
             spaceConn?.PostBoolPropertyUpdate(containerName, propertyName, val);
         }
 

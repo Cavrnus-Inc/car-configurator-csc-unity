@@ -42,7 +42,8 @@ namespace Cavrnus_Content.Scripts.VisionProComponents
 
         private void BeginInteract(SelectEnterEventArgs arg0)
         {
-            livePropertyUpdate ??= spaceConn.BeginTransientFloatPropertyUpdate(containerName, propertyName, sliderComponentComponent.SliderValue);
+            spaceConn.PostFloatPropertyUpdate(containerName, propertyName, sliderComponentComponent.SliderValue);
+            // livePropertyUpdate ??= spaceConn.BeginTransientFloatPropertyUpdate(containerName, propertyName, sliderComponentComponent.SliderValue);
         }
 
         private void SliderUpdated(float val)

@@ -52,11 +52,22 @@ namespace Cavrnus_Content.Scripts.VisionProComponents
         protected override void OnSelectEntered(SelectEnterEventArgs args)
         {
             base.OnSelectEntered(args);
+            print("poop ");
 
-            IsOn = !IsOn;
+            SetToggledStatus(!IsOn);
+        }
+
+        public void SetToggledStatus(bool state, bool notify = true)
+        {
+            IsOn = state;
             m_StartLerpTime = Time.time;
             m_IsAnimating = true;
-            OnToggleChanged?.Invoke(IsOn);
+            
+            print("poop ");
+
+            
+            if (notify)
+                OnToggleChanged?.Invoke(IsOn);
         }
 
         void Update()

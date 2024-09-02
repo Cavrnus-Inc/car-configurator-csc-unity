@@ -774,7 +774,20 @@ MonoBehaviour:
   m_SliderIndirectChangeScale: 1
   m_OnSliderValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1207047627160185269}
+        m_TargetAssemblyTypeName: UnityEngine.XR.Interaction.Toolkit.Samples.VisionOS.FloatToString,
+          Unity.XR.Interaction.Toolkit.Samples.VisionOS
+        m_MethodName: set_value
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &598970530289068539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,4 +802,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   containerName: Car
   propertyName: 
+  defaultValue: 1
   sliderComponentComponent: {fileID: 2813045715650372534}

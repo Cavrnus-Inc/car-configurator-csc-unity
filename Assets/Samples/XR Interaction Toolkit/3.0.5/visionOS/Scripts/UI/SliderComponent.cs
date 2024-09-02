@@ -23,13 +23,12 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.VisionOS
 
         [SerializeField]
         FloatUnityEvent m_OnSliderValueChanged;
-        
-        public float SliderValue{ get; private set; }
 
         float m_BoxColliderSizeX;
         int m_PercentageId;
         Material m_MaterialInstance;
         Vector3 m_StartLocalGrabPos;
+        float m_Percentage;
         float m_OnGrabStartPercentage;
 
         void Start()
@@ -44,7 +43,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.VisionOS
         protected override void OnSelectEntered(SelectEnterEventArgs args)
         {
             base.OnSelectEntered(args);
-            m_OnGrabStartPercentage = SliderValue;
+            m_OnGrabStartPercentage = m_Percentage;
             m_StartLocalGrabPos = transform.InverseTransformPoint(args.interactorObject.transform.position);
         }
 
@@ -89,9 +88,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.VisionOS
         
         void SetFillPercentage(float percentage)
         {
-            SliderValue = Mathf.Clamp01(percentage);
+            m_Percentage = Mathf.Clamp01(percentage);
             m_MaterialInstance.SetFloat(m_PercentageId, MapRange(percentage, 0f, 1f, -0.01f, 1.01f));
-            m_OnSliderValueChanged?.Invoke(1f - SliderValue);
+            m_OnSliderValueChanged?.Invoke(1f - m_Percentage);
         }
     }
 }

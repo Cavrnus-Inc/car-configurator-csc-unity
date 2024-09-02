@@ -182,14 +182,14 @@ namespace CavrnusDemo
 
         public void RotateCar(float val)
         {
-            var currentRotation = transform.eulerAngles;
-            currentRotation.y = val;
-            transform.eulerAngles = currentRotation;
+            // var currentRotation = transform.eulerAngles;
+            // currentRotation.y = val;
+            // transform.eulerAngles = currentRotation;
         }
         
         public void ScaleCar(float val)
         {
-            transform.localScale = Vector3.one * val;
+            // transform.localScale = Vector3.one * val;
         }
 
         private void OnDestroy()
