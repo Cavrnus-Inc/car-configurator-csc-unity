@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace Cavrnus_Content.Scripts.VisionProComponents
 {
+    [RequireComponent(typeof(CavrnusVisionProToggleComponent))]
     public class CavrnusVisionProPropertyToggle : MonoBehaviour
     {
         [SerializeField] private string containerName;
         [SerializeField] private string propertyName;
 
-        [Space]
-        [SerializeField] private CavrnusVisionProToggleComponent toggle;
+        private CavrnusVisionProToggleComponent toggle;
 
         private CavrnusSpaceConnection spaceConn;
         private IDisposable binding;
@@ -19,6 +19,9 @@ namespace Cavrnus_Content.Scripts.VisionProComponents
         {
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc => {
                 spaceConn = sc;
+                toggle = GetComponent<CavrnusVisionProToggleComponent>();
+                
+                print($"INITIALIZING THIS YOOOOOO");
                 sc.DefineBoolPropertyDefaultValue(containerName,propertyName,false);
                 binding = sc.BindBoolPropertyValue(containerName, propertyName, b => {
                     toggle.SetToggledStatus(b, false);
@@ -30,7 +33,7 @@ namespace Cavrnus_Content.Scripts.VisionProComponents
         
         private void ToggleClicked(bool val)
         {
-            print("cmoonnnnn " + val);
+            print($"SpaceConn: {spaceConn}: Toggling click");
             spaceConn?.PostBoolPropertyUpdate(containerName, propertyName, val);
         }
 
