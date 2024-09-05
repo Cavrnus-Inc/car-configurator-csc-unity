@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Cavrnus_Content.Mobile.Scripts.UI
 {
-    public class CavrnusUserPropertyStreamingToggle : MonoBehaviour, IPointerClickHandler
+    public class CavrnusBoundOnlyPropertyToggle : MonoBehaviour, IPointerClickHandler
     {
         public UnityEvent OnClicked;
         public UnityEvent<bool> OnValueChanged;
@@ -32,7 +32,6 @@ namespace Cavrnus_Content.Mobile.Scripts.UI
                         OnValueChanged?.Invoke(b);
                         toggle.isOn = b;
                     });
-                
                 });
             });
         }

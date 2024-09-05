@@ -2,55 +2,60 @@
 using CavrnusSdk.API;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Cavrnus_Content.Mobile.Scripts.UI
 {
-    public class CavrnusLocalUserMicToggle : MonoBehaviour
+    public class CavrnusLocalUserMicToggle : MonoBehaviour, IPointerClickHandler
     {
-        [SerializeField] private UnityEvent OnClicked;
+        public UnityEvent OnClicked;
+        public UnityEvent<bool> OnValueChanged;
         
-        [SerializeField] private UnityEvent<bool> OnStateChanged;
+        private string ContainerName = "muted";
         
-        private string ContainerName;
-        
-        [SerializeField] private string propertyName = "muted";
+        [SerializeField] private string propertyName;
 
         [Space]
         [SerializeField] private Toggle toggle;
-        
-        private CavrnusSpaceConnection spaceConn;
+
+        private CavrnusSpaceConnection spaceConnection;
+        private CavrnusUser localUser;
+
         private IDisposable binding;
-        private CavrnusLivePropertyUpdate<bool> updater;
 
         private void Start()
         {
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc => {
-                spaceConn = sc;
-                
+                spaceConnection = sc;
                 sc.AwaitLocalUser(user => {
+                    localUser = user;
                     ContainerName = user.ContainerId;
                     sc.DefineBoolPropertyDefaultValue(ContainerName,propertyName,false);
                     binding = sc.BindBoolPropertyValue(ContainerName, propertyName, b => {
-                        b = !b;
+                        OnValueChanged?.Invoke(b);
                         toggle.isOn = b;
-                        OnStateChanged?.Invoke(b);
                     });
-                
-                    toggle.onValueChanged.AddListener(ToggleClicked);
                 });
+                
+                toggle.onValueChanged.AddListener(ValueChanged);
             });
         }
 
-        private void ToggleClicked(bool val)
+        private void ValueChanged(bool val)
         {
-            OnClicked?.Invoke();
+            if (localUser.IsLocalUser)
+                spaceConnection?.SetLocalUserMutedState(val);
         }
 
         private void OnDestroy()
         {
-            toggle.onValueChanged.RemoveListener(ToggleClicked);
             binding?.Dispose();
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            OnClicked.Invoke();
         }
     }
 }

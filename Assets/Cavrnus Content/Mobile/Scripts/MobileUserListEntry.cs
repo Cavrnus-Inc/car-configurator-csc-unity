@@ -14,7 +14,7 @@ namespace Cavrnus_Content.Mobile.Scripts
     public class MobileUserListEntry : MonoBehaviour
     {
 	    [SerializeField] private VideoSelectorPopup videoDeviceSelectorPopupPrefab;
-	    [SerializeField] private CavrnusUserPropertyStreamingToggle videoToggle;
+	    [SerializeField] private CavrnusBoundOnlyPropertyToggle videoToggle;
 	    
 		[SerializeField] private TMP_Text nameText;
 		[SerializeField] private RawImage videoStreamImage;
