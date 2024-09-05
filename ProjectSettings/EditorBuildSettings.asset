@@ -17,9 +17,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Samples/XR Interaction Toolkit/3.0.5/visionOS/VolumeDemo.unity
     guid: f8dac43642fcf437b9bd0239b89eb6db
-  - enabled: 1
+  - enabled: 0
     path: Assets/Car Configurator AppleVisionPro.unity
     guid: ebee17a0327eafd4b98afb4a062ef79f
+  - enabled: 1
+    path: Assets/Car Configurator Mobile Controller.unity
+    guid: 789c77978985a4946afadefdf05c6679
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 91dac9858d409a048828ec99f70f727f,
       type: 2}
