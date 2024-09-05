@@ -13,11 +13,11 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Cavrnus
-  productName: Car Controller
+  productName: Cavrnus Car Configurator
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
-  m_ShowUnitySplashScreen: 1
+  m_ShowUnitySplashScreen: 0
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 1
@@ -140,7 +140,10 @@ PlayerSettings:
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
   bundleVersion: 1.0.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 2591288761592699758, guid: 4be3daea641bf7b4ea772c39056b2c92, type: 2}
+  - {fileID: 11400000, guid: c4799daecd2c24159a6e937aee8fd2a5, type: 2}
+  - {fileID: 11400000, guid: 939a6ea42171a4fd3b5ad32b8e2cc9a7, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -515,7 +518,10 @@ PlayerSettings:
       m_SubKind: 
   - m_BuildTarget: VisionOS
     m_Icons:
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: 6c6003812624848beab6533399bcad60, type: 3}
+      - {fileID: 2800000, guid: 6c6003812624848beab6533399bcad60, type: 3}
+      - {fileID: 2800000, guid: 6c6003812624848beab6533399bcad60, type: 3}
       m_Width: 1024
       m_Height: 1024
       m_Kind: 0
@@ -829,7 +835,7 @@ PlayerSettings:
     PS5: 1
     QNX: 1
     Stadia: 1
-    VisionOS: 1
+    VisionOS: 4
     WebGL: 1
     Windows Store Apps: 1
     XboxOne: 1
@@ -931,6 +937,6 @@ PlayerSettings:
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
-  platformRequiresReadableAssets: 0
+  platformRequiresReadableAssets: 1
   virtualTexturingSupportEnabled: 0
   insecureHttpOption: 0
