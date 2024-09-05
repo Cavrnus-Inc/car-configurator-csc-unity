@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cavrnus_Content.Mobile.Scripts.UI;
+using Cavrnus.UI;
 using CavrnusSdk.API;
 using TMPro;
 using UnityBase;
@@ -11,17 +13,31 @@ namespace Cavrnus_Content.Mobile.Scripts
 {
     public class MobileUserListEntry : MonoBehaviour
     {
+	    [SerializeField] private VideoSelectorPopup videoDeviceSelectorPopupPrefab;
+	    [SerializeField] private CavrnusUserPropertyStreamingToggle videoToggle;
+	    
 		[SerializeField] private TMP_Text nameText;
 		[SerializeField] private RawImage videoStreamImage;
 		[SerializeField] private Image profilePicImage;
+
+		[SerializeField] private Transform localUserActionContainer;
 
 		[SerializeField] private MiniUserListSpeakingPulse speakingPulse;
 		[SerializeField] private GameObject mutedGameObject;
 		
 		private List<IDisposable> disposables = new List<IDisposable>();
 
+		private CavrnusUser user;
+
 		public void Setup(CavrnusUser user)
 		{
+			this.user = user;
+			
+			localUserActionContainer.gameObject.SetActive(user.IsLocalUser);
+			if (user.IsLocalUser) {
+				SetupLocalUser();
+			}
+			
 			if (nameText != null) {
 				var nameDisposable = user.BindUserName(n => nameText.text = n);
 				disposables.Add(nameDisposable);
@@ -51,6 +67,19 @@ namespace Cavrnus_Content.Mobile.Scripts
 				var muted = user.BindUserMuted(isMuted => mutedGameObject.SetActive(isMuted));
 				disposables.Add(muted);
 			}
+		}
+
+		private void SetupLocalUser()
+		{
+			videoToggle.OnClicked.AddListener(() => {
+				//Only open if we aren't currently streaming
+				if (!user.GetUserStreaming()) {
+					PopupCanvas.Instance.OpenPopup(Instantiate(videoDeviceSelectorPopupPrefab).gameObject);
+				}
+				else {
+					user.SpaceConnection.SetLocalUserStreamingState(false);
+				}
+			});
 		}
 
 		private IEnumerator AssignVidTexture(TextureWithUVs tex)

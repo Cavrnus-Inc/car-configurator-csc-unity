@@ -7,8 +7,8 @@ namespace Cavrnus.UI
 {
     public class CavrnusPropertyToggle : MonoBehaviour
     {
-        [SerializeField] private string containerName;
-        [SerializeField] private string propertyName;
+        [SerializeField] public string ContainerName;
+        [SerializeField] public string PropertyName;
 
         [Space]
         [SerializeField] private Toggle toggle;
@@ -20,8 +20,8 @@ namespace Cavrnus.UI
         {
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc => {
                 spaceConn = sc;
-                sc.DefineBoolPropertyDefaultValue(containerName,propertyName,false);
-                binding = sc.BindBoolPropertyValue(containerName, propertyName, b => {
+                sc.DefineBoolPropertyDefaultValue(ContainerName,PropertyName,false);
+                binding = sc.BindBoolPropertyValue(ContainerName, PropertyName, b => {
                     toggle.isOn = b;
                 });
                 
@@ -31,7 +31,7 @@ namespace Cavrnus.UI
 
         private void ToggleClicked(bool val)
         {
-            spaceConn?.PostBoolPropertyUpdate(containerName, propertyName, val);
+            spaceConn?.PostBoolPropertyUpdate(ContainerName, PropertyName, val);
         }
 
         private void OnDestroy()
