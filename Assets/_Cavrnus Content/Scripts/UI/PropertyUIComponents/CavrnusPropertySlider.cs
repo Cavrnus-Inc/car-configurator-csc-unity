@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 namespace CavrnusSdk.CollaborationExamples
 {
+    [RequireComponent(typeof(Slider))]
     public class CavrnusPropertySlider : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
     {
         [SerializeField] private string containerName;
         [SerializeField] private string propertyName;
         
-        [SerializeField] private Slider slider;
+        private Slider slider;
 
         private CavrnusLivePropertyUpdate<float> livePropertyUpdate;
         private IDisposable binding;
@@ -19,6 +20,12 @@ namespace CavrnusSdk.CollaborationExamples
 
         private void Start()
         {
+            slider = GetComponent<Slider>();
+            if (!slider) {
+                print("Missing required slider!");
+                return;
+            }
+            
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc => {
                 spaceConn = sc;
                 sc.DefineFloatPropertyDefaultValue(containerName,propertyName,0);
@@ -51,7 +58,7 @@ namespace CavrnusSdk.CollaborationExamples
         private void OnDestroy()
         {
             binding?.Dispose();
-            slider.onValueChanged.RemoveListener(OnValueChanged);
+            slider?.onValueChanged.RemoveListener(OnValueChanged);
         }
     }
 }

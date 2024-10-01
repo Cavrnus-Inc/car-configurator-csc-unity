@@ -5,19 +5,25 @@ using UnityEngine.UI;
 
 namespace Cavrnus.UI
 {
+    [RequireComponent(typeof(Toggle))]
     public class CavrnusPropertyToggle : MonoBehaviour
     {
         [SerializeField] public string ContainerName;
         [SerializeField] public string PropertyName;
 
-        [Space]
-        [SerializeField] private Toggle toggle;
+        private Toggle toggle;
 
         private CavrnusSpaceConnection spaceConn;
         private IDisposable binding;
 
         private void Start()
         {
+            toggle = gameObject.GetComponent<Toggle>();
+            if (toggle == null) {
+                print("Toggle is null!");
+                return;
+            }
+
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc => {
                 spaceConn = sc;
                 sc.DefineBoolPropertyDefaultValue(ContainerName,PropertyName,false);
@@ -36,7 +42,7 @@ namespace Cavrnus.UI
 
         private void OnDestroy()
         {
-            toggle.onValueChanged.RemoveListener(ToggleClicked);
+            toggle?.onValueChanged.RemoveListener(ToggleClicked);
             binding?.Dispose();
         }
     }

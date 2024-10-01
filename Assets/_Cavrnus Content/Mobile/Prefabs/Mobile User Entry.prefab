@@ -282,12 +282,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e83cadec6e34b7d9279ce9168c71b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets:
-  - Category: OnOff
+  toggle: {fileID: 0}
+  stateTargets:
+  - Category: 
     Targets:
     - {fileID: 2055425792993368074}
-    UnselectedColor: {r: 0.93725497, g: 0.19607845, b: 0.18039216, a: 1}
+    UnselectedColor: {r: 0.9547169, g: 0.25038794, b: 0.25038794, a: 1}
     SelectedColor: {r: 0.3647059, g: 0.7960785, b: 0.40784317, a: 1}
+  hoverTargets: []
+  iconState:
+    Image: {fileID: 0}
+    OnIcon: {fileID: 0}
+    OffIcon: {fileID: 0}
 --- !u!114 &5016960903974967846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -897,12 +903,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e83cadec6e34b7d9279ce9168c71b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets:
-  - Category: OnOff
+  toggle: {fileID: 0}
+  stateTargets:
+  - Category: 
     Targets:
     - {fileID: 4858651725998305487}
     UnselectedColor: {r: 0.3647059, g: 0.7960785, b: 0.40784317, a: 1}
     SelectedColor: {r: 0.93725497, g: 0.19607845, b: 0.18039216, a: 1}
+  hoverTargets: []
+  iconState:
+    Image: {fileID: 0}
+    OnIcon: {fileID: 0}
+    OffIcon: {fileID: 0}
 --- !u!114 &3890095802088663048
 MonoBehaviour:
   m_ObjectHideFlags: 0
