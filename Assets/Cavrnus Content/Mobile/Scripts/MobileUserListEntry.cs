@@ -43,7 +43,7 @@ namespace Cavrnus_Content.Mobile.Scripts
 				disposables.Add(nameDisposable);
 			}
 		
-            var picDisp = user.BindProfilePic(this, profilePic =>
+            var picDisp = user.BindProfilePic(profilePic =>
             {
                 profilePicImage.sprite = profilePic;
                 if (profilePic != null)

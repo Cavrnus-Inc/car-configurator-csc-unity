@@ -1,8 +1,8 @@
-using CavrnusDemo;
+using CavrnusDemo.Interactables;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace CavrnusSdk.Common
+namespace CavrnusSdk.Interactables
 {
     public class PlayerObjectInteractor : MonoBehaviour
     {

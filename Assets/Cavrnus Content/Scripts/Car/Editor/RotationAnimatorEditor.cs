@@ -1,17 +1,16 @@
-﻿using CavrnusDemo.SdkExtensions;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 namespace CavrnusDemo
 {
-    [CustomEditor(typeof(RotationAnimator))]
+    [CustomEditor(typeof(CavrnusRotationAnimator))]
     public class RotationAnimatorEditor : Editor
     {
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
 
-            var script = (RotationAnimator) target;
+            var script = (CavrnusRotationAnimator) target;
 
             if (GUILayout.Button("SetBegin")) {
                 script.SetBegin();

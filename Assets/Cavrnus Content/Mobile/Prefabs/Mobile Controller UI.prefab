@@ -202,7 +202,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 7209704658182448465}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.80194664
+  m_Size: 0.7094814
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -862,7 +862,6 @@ GameObject:
   - component: {fileID: 6858297888047324894}
   - component: {fileID: 6557919348254817748}
   - component: {fileID: 5542287264441910931}
-  - component: {fileID: 4649613086427497425}
   m_Layer: 5
   m_Name: Car Paint Color Menu
   m_TagString: Untagged
@@ -935,43 +934,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2c46cf34154bc19d8bfd24f7edc44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containerName: Car
+  propertyName: CarColor
+  userColorValue: 0
   colorPrefab: {fileID: 4359308232265974393, guid: bb3393db3ad3b734987ab17c79ec79fb,
     type: 3}
   container: {fileID: 6858297888047324894}
---- !u!114 &4649613086427497425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3247205288539563131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da0d38b25fc847189f4e1428a6f1369e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cavColorChangerUI: {fileID: 5542287264441910931}
-  containerName: Car
-  propertyName: CarColor
-  displayName: CarColor
-  description: The car's paint color
-  colorTextureInfo:
-  - DisplayName: black
-    Color: {r: 0, g: 0, b: 0, a: 1}
-    Texture: {fileID: 2800000, guid: 0a675a74a0c88ba41888634fbee5bb30, type: 3}
-  - DisplayName: blue
-    Color: {r: 0, g: 0.19215688, b: 0.43921572, a: 1}
-    Texture: {fileID: 2800000, guid: 4efa29aa1f051d349b472f3b99875a3b, type: 3}
-  - DisplayName: red
-    Color: {r: 0.654902, g: 0.121568635, b: 0.058823533, a: 1}
-    Texture: {fileID: 2800000, guid: 1f70a4c518f3ae5408c5b2bcc2cbcb3c, type: 3}
-  - DisplayName: white
-    Color: {r: 1, g: 1, b: 1, a: 1}
-    Texture: {fileID: 2800000, guid: a0c75cee9bffd2c458d09ce1927f3def, type: 3}
-  - DisplayName: yellow
-    Color: {r: 0.93725497, g: 0.6666667, b: 0, a: 1}
-    Texture: {fileID: 2800000, guid: 071a11ae775afd641b5861fa43a312a1, type: 3}
-  targetMaterial: {fileID: 2100000, guid: 5502db90b1c3c27419be0eb96ef2a814, type: 2}
+  colorData: {fileID: 11400000, guid: 31bba0939f9777b4ca75e53c16439691, type: 2}
 --- !u!1 &3464587992684976849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,7 +1037,6 @@ GameObject:
   - component: {fileID: 4697327287122140519}
   - component: {fileID: 3046623785512578414}
   - component: {fileID: 1274907333148430666}
-  - component: {fileID: 9170779285645371974}
   m_Layer: 5
   m_Name: UnderGlow Color Menu
   m_TagString: Untagged
@@ -1140,37 +1108,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2c46cf34154bc19d8bfd24f7edc44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containerName: Car
+  propertyName: UnderGlowColor
+  userColorValue: 1
   colorPrefab: {fileID: 4359308232265974393, guid: bb3393db3ad3b734987ab17c79ec79fb,
     type: 3}
   container: {fileID: 4697327287122140519}
---- !u!114 &9170779285645371974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4135626826947743171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbbb5460db41482da2f8f1788d5ebbac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cavColorChangerUI: {fileID: 1274907333148430666}
-  containerName: Car
-  propertyName: UnderGlowColor
-  colorTextureInfo:
-  - DisplayName: green
-    Color: {r: 0.3754716, g: 1, b: 0.3754716, a: 1}
-    Texture: {fileID: 0}
-  - DisplayName: red
-    Color: {r: 1, g: 0.33018857, b: 0.33018857, a: 1}
-    Texture: {fileID: 0}
-  - DisplayName: blue
-    Color: {r: 0.16651474, g: 0.49184695, b: 0.96981126, a: 1}
-    Texture: {fileID: 0}
-  - DisplayName: pink
-    Color: {r: 1, g: 0.2999999, b: 1, a: 1}
-    Texture: {fileID: 0}
+  colorData: {fileID: 11400000, guid: 3f55d05255dcf6c4a8265ad79c404957, type: 2}
 --- !u!1 &4295223049044305505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,8 +1925,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 476.19574, y: 0}
-  m_SizeDelta: {x: 952.3915, y: 0}
+  m_AnchoredPosition: {x: 526.7, y: 0}
+  m_SizeDelta: {x: 1053.4, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5967138504974737186
 CanvasRenderer:
@@ -2146,7 +2090,7 @@ GameObject:
   - component: {fileID: 1447593038931391635}
   - component: {fileID: 2405382103524325043}
   - component: {fileID: 5044672934784320241}
-  - component: {fileID: 130954555849977881}
+  - component: {fileID: 4094783071263550513}
   m_Layer: 5
   m_Name: Main Content
   m_TagString: Untagged
@@ -2175,8 +2119,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 476.19574, y: 0}
-  m_SizeDelta: {x: 952.3915, y: 0}
+  m_AnchoredPosition: {x: 610.2383, y: 0}
+  m_SizeDelta: {x: 1220.4766, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2405382103524325043
 CanvasRenderer:
@@ -2200,7 +2144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
---- !u!114 &130954555849977881
+--- !u!114 &4094783071263550513
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2220,7 +2164,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 1
-  m_CellSize: {x: 411.19574, y: 363.9}
+  m_CellSize: {x: 545.2383, y: 363.9}
   m_Spacing: {x: 50, y: 50}
   m_Constraint: 1
   m_ConstraintCount: 2
@@ -3065,8 +3009,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 482.5, y: 0}
-  m_SizeDelta: {x: 965, y: 0}
+  m_AnchoredPosition: {x: 526.7, y: 0}
+  m_SizeDelta: {x: 1053.4, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1675673471458252457
 CanvasRenderer:
@@ -3128,6 +3072,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MobileToggleTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659269070284908549, guid: 6ef0601b7b2f0ca46b13305822790573,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3052125188495698203, guid: 6ef0601b7b2f0ca46b13305822790573,
         type: 3}
@@ -3383,7 +3332,7 @@ PrefabInstance:
     - target: {fileID: 5938875392527599859, guid: a4d1e5d7f1ddae549b6c276553008138,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 224.74786
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 5938875392527599859, guid: a4d1e5d7f1ddae549b6c276553008138,
         type: 3}
@@ -3428,7 +3377,7 @@ PrefabInstance:
     - target: {fileID: 5938875392527599859, guid: a4d1e5d7f1ddae549b6c276553008138,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 377.1218
+      value: 415
       objectReference: {fileID: 0}
     - target: {fileID: 5938875392527599859, guid: a4d1e5d7f1ddae549b6c276553008138,
         type: 3}
@@ -4396,7 +4345,7 @@ PrefabInstance:
     - target: {fileID: 5938875392527599859, guid: a4d1e5d7f1ddae549b6c276553008138,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 224.74786
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 5938875392527599859, guid: a4d1e5d7f1ddae549b6c276553008138,
         type: 3}
@@ -4441,7 +4390,7 @@ PrefabInstance:
     - target: {fileID: 5938875392527599859, guid: a4d1e5d7f1ddae549b6c276553008138,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 826.61755
+      value: 915
       objectReference: {fileID: 0}
     - target: {fileID: 5938875392527599859, guid: a4d1e5d7f1ddae549b6c276553008138,
         type: 3}
@@ -4608,7 +4557,7 @@ PrefabInstance:
     - target: {fileID: 5938875392527599859, guid: a4d1e5d7f1ddae549b6c276553008138,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 224.74786
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 5938875392527599859, guid: a4d1e5d7f1ddae549b6c276553008138,
         type: 3}
@@ -4653,7 +4602,7 @@ PrefabInstance:
     - target: {fileID: 5938875392527599859, guid: a4d1e5d7f1ddae549b6c276553008138,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 601.8696
+      value: 665
       objectReference: {fileID: 0}
     - target: {fileID: 5938875392527599859, guid: a4d1e5d7f1ddae549b6c276553008138,
         type: 3}
@@ -5039,7 +4988,7 @@ PrefabInstance:
     - target: {fileID: 5938875392527599859, guid: a4d1e5d7f1ddae549b6c276553008138,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 224.74786
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 5938875392527599859, guid: a4d1e5d7f1ddae549b6c276553008138,
         type: 3}
@@ -5084,7 +5033,7 @@ PrefabInstance:
     - target: {fileID: 5938875392527599859, guid: a4d1e5d7f1ddae549b6c276553008138,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 152.37393
+      value: 165
       objectReference: {fileID: 0}
     - target: {fileID: 5938875392527599859, guid: a4d1e5d7f1ddae549b6c276553008138,
         type: 3}

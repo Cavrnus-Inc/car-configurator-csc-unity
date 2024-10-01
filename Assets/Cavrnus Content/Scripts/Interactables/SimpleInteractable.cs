@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace CavrnusDemo
+namespace CavrnusDemo.Interactables
 {
     public class SimpleInteractable : MonoBehaviour, ICustomInteractable
     {
@@ -12,16 +12,6 @@ namespace CavrnusDemo
         {
             get => onInteract;
             set => onInteract = value;
-        }
-
-        public void SetActiveState(bool state)
-        {
-            
-        }
-
-        public void SetVisibility(bool state)
-        {
-            
         }
 
         public void Interact()

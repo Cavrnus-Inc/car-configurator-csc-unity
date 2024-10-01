@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using CavrnusDemo.Interactables;
+using UnityEditor;
 using UnityEngine;
 
 namespace CavrnusDemo

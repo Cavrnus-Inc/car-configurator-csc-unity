@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cavrnus.UI;
 using CavrnusSdk.API;
 using TMPro;
 using UnityBase;
@@ -38,7 +39,7 @@ namespace Cavrnus_Content.Mobile.Scripts
                 disposables.Add(nameDisposable);
             }
 		
-            var picDisp = user.BindProfilePic(this, profilePic =>
+            var picDisp = user.BindProfilePic(profilePic =>
             {
                 profilePicImage.sprite = profilePic;
                 if (profilePic != null)

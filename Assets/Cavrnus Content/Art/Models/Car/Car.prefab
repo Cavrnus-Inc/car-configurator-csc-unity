@@ -581,10 +581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 624031803110227879}
-  - component: {fileID: 4508774121390452999}
-  - component: {fileID: 2435551431258763876}
   - component: {fileID: 7073370056367666244}
-  - component: {fileID: 3383060201297687113}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -622,47 +619,6 @@ Transform:
   - {fileID: 7750054581807380836}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4508774121390452999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624031803110227864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19e724c140dc23a418b8365b0907f9ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UniqueContainerName: Car
---- !u!114 &2435551431258763876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624031803110227864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adbf7f8a7fac94e42af5348b5ade8fb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  headLightsPropertyName: HeadlightsVis
-  headLightsGameObject: {fileID: 367284437488726404}
-  emissiveMaterial: {fileID: 2100000, guid: 788e1fd9c52c28a459976f2634877c65, type: 2}
-  emissionColorMaterialProperty: _EmissionColor
-  headLightsToggle: {fileID: 0}
-  underGlowPropertyNameVis: UnderGlowVis
-  underGlowPropertyNameColor: UnderGlowColor
-  underGlowToggle: {fileID: 0}
-  underGlowLight: {fileID: 2414048031476955363}
-  underGlowGameObject: {fileID: 4637484161484160577}
-  driverDoorPropertyNameAnimation: DriverDoorAnimation
-  driverDoor: {fileID: 7799948012189496612}
-  passengerDoorPropertyNameAnimation: PassengerDoorAnimation
-  passengerDoor: {fileID: 6713522911283838276}
-  trunkPropertyNameAnimation: TrunkAnimation
-  trunk: {fileID: 7963894418291118237}
 --- !u!114 &7073370056367666244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,56 +631,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0d38b25fc847189f4e1428a6f1369e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cavColorChangerUI: {fileID: 0}
   containerName: Car
   propertyName: CarColor
   displayName: CarColor
   description: The car's paint color
-  colorTextureInfo:
-  - DisplayName: black
-    Color: {r: 0, g: 0, b: 0, a: 1}
-    Texture: {fileID: 2800000, guid: 0a675a74a0c88ba41888634fbee5bb30, type: 3}
-  - DisplayName: blue
-    Color: {r: 0, g: 0.19215688, b: 0.43921572, a: 1}
-    Texture: {fileID: 2800000, guid: 4efa29aa1f051d349b472f3b99875a3b, type: 3}
-  - DisplayName: red
-    Color: {r: 0.65882355, g: 0.1254902, b: 0.0627451, a: 1}
-    Texture: {fileID: 2800000, guid: 1f70a4c518f3ae5408c5b2bcc2cbcb3c, type: 3}
-  - DisplayName: white
-    Color: {r: 0.9568628, g: 0.9568628, b: 0.9568628, a: 1}
-    Texture: {fileID: 2800000, guid: a0c75cee9bffd2c458d09ce1927f3def, type: 3}
-  - DisplayName: yellow
-    Color: {r: 0.93725497, g: 0.6666667, b: 0, a: 1}
-    Texture: {fileID: 2800000, guid: 071a11ae775afd641b5861fa43a312a1, type: 3}
+  colorData: {fileID: 11400000, guid: 31bba0939f9777b4ca75e53c16439691, type: 2}
   targetMaterial: {fileID: 2100000, guid: 5502db90b1c3c27419be0eb96ef2a814, type: 2}
---- !u!114 &3383060201297687113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624031803110227864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbbb5460db41482da2f8f1788d5ebbac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cavColorChangerUI: {fileID: 0}
-  containerName: Car
-  propertyName: UnderGlowColor
-  colorTextureInfo:
-  - DisplayName: green
-    Color: {r: 0.3754716, g: 1, b: 0.3754716, a: 1}
-    Texture: {fileID: 0}
-  - DisplayName: red
-    Color: {r: 1, g: 0.33018857, b: 0.33018857, a: 1}
-    Texture: {fileID: 0}
-  - DisplayName: blue
-    Color: {r: 0.16651474, g: 0.49184695, b: 0.96981126, a: 1}
-    Texture: {fileID: 0}
-  - DisplayName: pink
-    Color: {r: 1, g: 0.2999999, b: 1, a: 1}
-    Texture: {fileID: 0}
 --- !u!1 &651744713069772159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,6 +1895,8 @@ MonoBehaviour:
   OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+  containerName: Car
+  propertyName: DriverDoorAnimation
   rotationSpeed: 50
   animationCurve:
     serializedVersion: 2
@@ -2025,9 +1939,9 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2435551431258763876}
-        m_TargetAssemblyTypeName: CavrnusDemo.Car, Assembly-CSharp
-        m_MethodName: ToggleDriverDoorAnim
+      - m_Target: {fileID: 7799948012189496612}
+        m_TargetAssemblyTypeName: CavrnusDemo.CavrnusRotationAnimator, Assembly-CSharp
+        m_MethodName: Toggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2604,7 +2518,7 @@ GameObject:
   - component: {fileID: 7963894418291118237}
   - component: {fileID: 2649982057565357851}
   m_Layer: 0
-  m_Name: Baggage_Exterior
+  m_Name: Baggage_Exterior_AnimateMe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2698,6 +2612,8 @@ MonoBehaviour:
   OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+  containerName: Car
+  propertyName: TrunkAnimation
   rotationSpeed: 50
   animationCurve:
     serializedVersion: 2
@@ -2740,9 +2656,9 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2435551431258763876}
-        m_TargetAssemblyTypeName: CavrnusDemo.Car, Assembly-CSharp
-        m_MethodName: ToggleTrunkAnim
+      - m_Target: {fileID: 7963894418291118237}
+        m_TargetAssemblyTypeName: CavrnusDemo.CavrnusRotationAnimator, Assembly-CSharp
+        m_MethodName: Toggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3087,9 +3003,9 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2435551431258763876}
-        m_TargetAssemblyTypeName: CavrnusDemo.Car, Assembly-CSharp
-        m_MethodName: ToggleTrunkAnim
+      - m_Target: {fileID: 7963894418291118237}
+        m_TargetAssemblyTypeName: CavrnusDemo.CavrnusRotationAnimator, Assembly-CSharp
+        m_MethodName: Toggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3440,6 +3356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7750054581807380836}
+  - component: {fileID: 1689056654730388914}
   m_Layer: 0
   m_Name: LIGHTS
   m_TagString: Untagged
@@ -3464,6 +3381,24 @@ Transform:
   - {fileID: 754661689411286820}
   m_Father: {fileID: 624031803110227879}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1689056654730388914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4569248973536265321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae136691be374da8b5ccc9fef8fb456b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  containerName: Car
+  propertyName: HeadlightsVis
+  emissiveMaterial: {fileID: 2100000, guid: 788e1fd9c52c28a459976f2634877c65, type: 2}
+  emissionColorMaterialProperty: _EmissionColor
+  lights:
+  - {fileID: 367284437488726404}
 --- !u!1 &4637484161484160577
 GameObject:
   m_ObjectHideFlags: 0
@@ -3475,6 +3410,9 @@ GameObject:
   - component: {fileID: 5907289934665648810}
   - component: {fileID: 2414048031476955363}
   - component: {fileID: 8994069553208108657}
+  - component: {fileID: 5582910895459186039}
+  - component: {fileID: 7277592613248229072}
+  - component: {fileID: 7980244799706886348}
   m_Layer: 0
   m_Name: Underglow
   m_TagString: Untagged
@@ -3582,6 +3520,49 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!114 &5582910895459186039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4637484161484160577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e724c140dc23a418b8365b0907f9ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UniqueContainerName: Car
+--- !u!114 &7277592613248229072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4637484161484160577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493038ca33f1af64aa166c6e1d6e42ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PropertyName: UnderGlowVis
+  SendMyChanges: 1
+  RecieveChanges: 1
+--- !u!114 &7980244799706886348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4637484161484160577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a03406833755453488d411b3c3e0780f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PropertyName: UnderGlowColor
+  SendMyChanges: 1
+  RecieveChanges: 1
 --- !u!1 &4718977112986045281
 GameObject:
   m_ObjectHideFlags: 0
@@ -4423,6 +4404,8 @@ MonoBehaviour:
   OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+  containerName: Car
+  propertyName: PassengerDoorAnimation
   rotationSpeed: 50
   animationCurve:
     serializedVersion: 2
@@ -4465,9 +4448,9 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2435551431258763876}
-        m_TargetAssemblyTypeName: CavrnusDemo.Car, Assembly-CSharp
-        m_MethodName: TogglePassengerDoorAnim
+      - m_Target: {fileID: 6713522911283838276}
+        m_TargetAssemblyTypeName: CavrnusDemo.CavrnusRotationAnimator, Assembly-CSharp
+        m_MethodName: Toggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6375,7 +6358,7 @@ GameObject:
   - component: {fileID: 3850688416938576574}
   - component: {fileID: 6572854294478301333}
   m_Layer: 0
-  m_Name: HeadLights Driver (1)
+  m_Name: HeadLights Passenger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

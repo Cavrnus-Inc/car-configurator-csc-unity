@@ -94,9 +94,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2c46cf34154bc19d8bfd24f7edc44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containerName: Car
+  propertyName: 
   colorPrefab: {fileID: 5059752817734188206, guid: cb8d7772d9e28414e89fc6d123f4fe5a,
     type: 3}
   container: {fileID: 4441765041435823561}
+  colorData: {fileID: 0}
 --- !u!1 &1781431998560766257
 GameObject:
   m_ObjectHideFlags: 0

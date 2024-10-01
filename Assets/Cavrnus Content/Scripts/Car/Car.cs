@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using CavrnusDemo.SdkExtensions;
 using CavrnusSdk.PropertySynchronizers;
 using CavrnusSdk.API;
 using UnityEngine;
@@ -8,7 +7,6 @@ using UnityEngine.UI;
 
 namespace CavrnusDemo
 {
-    [RequireComponent(typeof(CavrnusPropertiesContainer))]
     public class Car : MonoBehaviour
     {
         [Header("Headlight & TailLights")]
@@ -34,15 +32,15 @@ namespace CavrnusDemo
 
         [Header("Animations")]
         [SerializeField] private string driverDoorPropertyNameAnimation = "DriverDoorAnimation";
-        [SerializeField] private RotationAnimator driverDoor;
+        [SerializeField] private CavrnusRotationAnimator driverDoor;
         
         [Space]
         [SerializeField] private string passengerDoorPropertyNameAnimation = "PassengerDoorAnimation";
-        [SerializeField] private RotationAnimator passengerDoor;
+        [SerializeField] private CavrnusRotationAnimator passengerDoor;
         
         [Space]
         [SerializeField] private string trunkPropertyNameAnimation = "TrunkAnimation";
-        [SerializeField] private RotationAnimator trunk;
+        [SerializeField] private CavrnusRotationAnimator trunk;
         
         [Space]
         [SerializeField] private string carRotationName = "Rotation";
@@ -56,8 +54,6 @@ namespace CavrnusDemo
 
         private void Start()
         {
-            ctx = GetComponent<CavrnusPropertiesContainer>();
-
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc => {
                 spaceConn = sc;
 
@@ -87,7 +83,7 @@ namespace CavrnusDemo
                 // Driver Door Animation
                 spaceConn.DefineBoolPropertyDefaultValue(ctx.UniqueContainerName, driverDoorPropertyNameAnimation, false);
                 disposables.Add(spaceConn.BindBoolPropertyValue(ctx.UniqueContainerName, driverDoorPropertyNameAnimation, b => {
-                    driverDoor.SetState(b);
+                    // driverDoor.SetState(b);
                 }));
                 
                 // Passenger Door Animation
