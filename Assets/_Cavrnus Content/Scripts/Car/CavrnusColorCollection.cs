@@ -15,6 +15,7 @@ namespace CavrnusDemo
             public string DisplayName;
             public Color Color;
             public Texture Texture;
+            public bool IsDefault;
         }
 
         public List<ColorTextureInfo> ColorData;

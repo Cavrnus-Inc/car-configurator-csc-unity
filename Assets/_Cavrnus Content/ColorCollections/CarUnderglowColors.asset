@@ -16,12 +16,16 @@ MonoBehaviour:
   - DisplayName: green
     Color: {r: 0.3754716, g: 1, b: 0.3754716, a: 1}
     Texture: {fileID: 0}
+    IsDefault: 0
   - DisplayName: red
     Color: {r: 1, g: 0.33018857, b: 0.33018857, a: 1}
     Texture: {fileID: 0}
+    IsDefault: 1
   - DisplayName: blue
     Color: {r: 0.16651474, g: 0.49184695, b: 0.96981126, a: 1}
     Texture: {fileID: 0}
+    IsDefault: 0
   - DisplayName: pink
     Color: {r: 1, g: 0.2999999, b: 1, a: 1}
     Texture: {fileID: 0}
+    IsDefault: 0

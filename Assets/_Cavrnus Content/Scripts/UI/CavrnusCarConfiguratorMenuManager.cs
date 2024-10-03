@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using CavrnusCore;
 using UnityEngine;
 using UnityEngine.UI;
-
 
 namespace CavrnusDemo
 {
@@ -45,8 +46,14 @@ namespace CavrnusDemo
 
         private ButtonMenu currentOpenMenu;
 
-        private void Awake()
+        private void Start()
         {
+            CavrnusStatics.Scheduler.ExecCoRoutine(DelayStart());
+        }
+
+        private IEnumerator DelayStart()
+        {
+            yield return null;
             menuVisuals.ForEach(mv => mv.SetActive(false));
             
             for (var i = 0; i < buttonMenus.Count; i++) {
@@ -80,7 +87,7 @@ namespace CavrnusDemo
             for (var i = 0; i < buttonMenus.Count; i++) {
                 var bm = buttonMenus[i];
                 bm.Teardown();
-                bm.OnToggleClicked += OnToggleClicked;
+                bm.OnToggleClicked -= OnToggleClicked;
             }
         }
     }

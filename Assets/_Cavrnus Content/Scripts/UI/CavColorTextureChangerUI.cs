@@ -22,6 +22,8 @@ namespace CavrnusDemo
         private List<IDisposable> bindings = new List<IDisposable>();
         private CavrnusSpaceConnection spaceConnection;
 
+        private CavrnusColorCollection.ColorTextureInfo defaultColorData;
+
         private void Start()
         {
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc => {
@@ -30,15 +32,20 @@ namespace CavrnusDemo
                     var go = Instantiate(colorPrefab, container);
                     items.Add(go.GetComponent<ColorTextureChangerItem>());
                     go.GetComponent<ColorTextureChangerItem>().Setup(data, OnSelected);
+
+                    if (data.IsDefault) 
+                        defaultColorData = data;
                 }
 
                 if (userColorValue) {
+                    sc.DefineColorPropertyDefaultValue(containerName, propertyName, defaultColorData?.Color ?? Color.black);
                     bindings.Add(sc.BindColorPropertyValue(containerName, propertyName, serverColor => {
                         var serverData = colorData.GetDataFromColor(serverColor);
                         SetSelectedColor(serverData);
                     }));
                 }
                 else {
+                    sc.DefineStringPropertyDefaultValue(containerName, propertyName, defaultColorData?.Texture.name ?? "");
                     bindings.Add(sc.BindStringPropertyValue(containerName, propertyName, serverTexture => {
                         if (string.IsNullOrWhiteSpace(serverTexture)) 
                             return;
