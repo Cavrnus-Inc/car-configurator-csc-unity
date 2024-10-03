@@ -11,6 +11,9 @@ namespace Cavrnus.UI
         [SerializeField] public string ContainerName;
         [SerializeField] public string PropertyName;
 
+        [Space]
+        [SerializeField] private bool defaultOn = false;
+        
         private Toggle toggle;
 
         private CavrnusSpaceConnection spaceConn;
@@ -26,7 +29,7 @@ namespace Cavrnus.UI
 
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc => {
                 spaceConn = sc;
-                sc.DefineBoolPropertyDefaultValue(ContainerName,PropertyName,false);
+                sc.DefineBoolPropertyDefaultValue(ContainerName,PropertyName,defaultOn);
                 binding = sc.BindBoolPropertyValue(ContainerName, PropertyName, b => {
                     toggle.isOn = b;
                 });

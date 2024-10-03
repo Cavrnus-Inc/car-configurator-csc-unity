@@ -11,6 +11,9 @@ namespace CavrnusSdk.CollaborationExamples
     {
         [SerializeField] private string containerName;
         [SerializeField] private string propertyName;
+
+        [Space]
+        [SerializeField] private float defaultValue = 0f;
         
         private Slider slider;
 
@@ -28,7 +31,7 @@ namespace CavrnusSdk.CollaborationExamples
             
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc => {
                 spaceConn = sc;
-                sc.DefineFloatPropertyDefaultValue(containerName,propertyName,0);
+                sc.DefineFloatPropertyDefaultValue(containerName, propertyName, defaultValue);
                 binding = sc.BindFloatPropertyValue(containerName, propertyName, val => {
                     slider.SetValueWithoutNotify(val);
                 });

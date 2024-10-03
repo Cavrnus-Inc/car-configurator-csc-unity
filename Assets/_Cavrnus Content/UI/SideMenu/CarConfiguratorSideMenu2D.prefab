@@ -2588,6 +2588,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1665578984082171893, guid: 897ac4f26d160ac4eb68b117a5deebff,
         type: 3}
+      propertyPath: defaultValue
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665578984082171893, guid: 897ac4f26d160ac4eb68b117a5deebff,
+        type: 3}
       propertyPath: propertyName
       value: ShadowStrength
       objectReference: {fileID: 0}
@@ -2725,6 +2730,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226408127244169879, guid: 897ac4f26d160ac4eb68b117a5deebff,
+        type: 3}
+      propertyPath: m_Value
+      value: 0.947
       objectReference: {fileID: 0}
     - target: {fileID: 7263544546050390007, guid: 897ac4f26d160ac4eb68b117a5deebff,
         type: 3}
@@ -4012,6 +4022,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1665578984082171893, guid: 897ac4f26d160ac4eb68b117a5deebff,
         type: 3}
+      propertyPath: defaultValue
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665578984082171893, guid: 897ac4f26d160ac4eb68b117a5deebff,
+        type: 3}
       propertyPath: propertyName
       value: SunlightRotation
       objectReference: {fileID: 0}
@@ -5087,6 +5102,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8424483567462427373, guid: 284e96d3696b5724aa9fefe45f0676f0,
         type: 3}
+      propertyPath: defaultOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424483567462427373, guid: 284e96d3696b5724aa9fefe45f0676f0,
+        type: 3}
       propertyPath: PropertyName
       value: HeadlightsVis
       objectReference: {fileID: 0}
@@ -5243,6 +5263,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424483567462427373, guid: 284e96d3696b5724aa9fefe45f0676f0,
+        type: 3}
+      propertyPath: defaultOn
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8424483567462427373, guid: 284e96d3696b5724aa9fefe45f0676f0,
         type: 3}
