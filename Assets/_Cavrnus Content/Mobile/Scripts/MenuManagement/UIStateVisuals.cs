@@ -35,6 +35,12 @@ namespace Cavrnus.UI.MenuManagement
         [Space]
         [SerializeField] private IconState iconState;
 
+        private void Awake()
+        {
+            SetValue(false);
+            OnPointerExit(null);
+        }
+
         private void Update()
         {
             if (toggle != null) {
