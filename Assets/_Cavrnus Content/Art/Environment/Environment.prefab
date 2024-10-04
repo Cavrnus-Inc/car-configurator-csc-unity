@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9043936615404c16a937625fbf87e214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  containerName: DirectionalLight
+  containerName: Car
   rotationPropertyName: SunlightRotation
   shadowPropertyName: ShadowStrength
   lightContainer: {fileID: 8403685275004568370}

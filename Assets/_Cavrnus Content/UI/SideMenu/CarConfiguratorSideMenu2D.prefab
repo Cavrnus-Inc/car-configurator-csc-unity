@@ -2599,7 +2599,7 @@ PrefabInstance:
     - target: {fileID: 1665578984082171893, guid: 897ac4f26d160ac4eb68b117a5deebff,
         type: 3}
       propertyPath: containerName
-      value: DirectionalLight
+      value: Car
       objectReference: {fileID: 0}
     - target: {fileID: 3029167985475147911, guid: 897ac4f26d160ac4eb68b117a5deebff,
         type: 3}
@@ -4033,7 +4033,7 @@ PrefabInstance:
     - target: {fileID: 1665578984082171893, guid: 897ac4f26d160ac4eb68b117a5deebff,
         type: 3}
       propertyPath: containerName
-      value: DirectionalLight
+      value: Car
       objectReference: {fileID: 0}
     - target: {fileID: 3029167985475147911, guid: 897ac4f26d160ac4eb68b117a5deebff,
         type: 3}

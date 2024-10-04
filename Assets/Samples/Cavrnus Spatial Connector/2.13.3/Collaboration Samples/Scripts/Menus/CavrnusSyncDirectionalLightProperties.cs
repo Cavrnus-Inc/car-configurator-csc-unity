@@ -5,11 +5,11 @@ namespace CavrnusSdk.CollaborationExamples
 {
     public class CavrnusSyncDirectionalLightProperties : MonoBehaviour
     {
-        [SerializeField] private string containerName = "DirectionalLight";
+        [SerializeField] private string containerName;
 
         [Header("Color Sync Properties")]
-        [SerializeField] private string rotationPropertyName = "SunlightRotation";
-        [SerializeField] private string shadowPropertyName = "ShadowStrength";
+        [SerializeField] private string rotationPropertyName;
+        [SerializeField] private string shadowPropertyName;
         
         [Header("Components")]
         [SerializeField] private GameObject lightContainer;
