@@ -8,9 +8,6 @@ namespace CavrnusDemo
 {
     public class CavColorTextureChangerUI : MonoBehaviour
     {
-        [SerializeField] private string containerName;
-        [SerializeField] private string propertyName;
-
         [SerializeField] private bool userColorValue;
 
         [SerializeField] private ColorCavrnusPropertyObject colorPropertyObject;
@@ -37,15 +34,13 @@ namespace CavrnusDemo
                 }
 
                 if (userColorValue) {
-                    sc.DefineColorPropertyDefaultValue(colorPropertyObject.ContainerName, colorPropertyObject.PropertyName, colorPropertyObject.DefaultValue);
-                    bindings.Add(sc.BindColorPropertyValue(containerName, propertyName, serverColor => {
+                    bindings.Add(sc.BindColorPropertyValue(colorPropertyObject.ContainerName, colorPropertyObject.PropertyName, serverColor => {
                         var serverData = colorData.GetDataFromColor(serverColor);
                         SetSelectedColor(serverData);
                     }));
                 }
                 else {
-                    sc.DefineStringPropertyDefaultValue(textureColorPropertyObject.ContainerName, textureColorPropertyObject.PropertyName, textureColorPropertyObject.DefaultValue);
-                    bindings.Add(sc.BindStringPropertyValue(containerName, propertyName, serverTexture => {
+                    bindings.Add(sc.BindStringPropertyValue(textureColorPropertyObject.ContainerName, textureColorPropertyObject.PropertyName, serverTexture => {
                         if (string.IsNullOrWhiteSpace(serverTexture)) 
                             return;
                     
@@ -61,7 +56,7 @@ namespace CavrnusDemo
             if (data.Texture == null)
                 spaceConnection?.PostColorPropertyUpdate(colorPropertyObject.ContainerName, colorPropertyObject.PropertyName, data.Color);
             else
-                spaceConnection?.PostStringPropertyUpdate(colorPropertyObject.ContainerName, colorPropertyObject.PropertyName, data.Texture.name);
+                spaceConnection?.PostStringPropertyUpdate(textureColorPropertyObject.ContainerName, textureColorPropertyObject.PropertyName, data.Texture.name);
         }
 
         private void SetSelectedColor(CavrnusColorCollection.ColorTextureInfo selectedData)
