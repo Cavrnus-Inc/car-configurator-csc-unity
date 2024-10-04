@@ -2593,6 +2593,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1665578984082171893, guid: 897ac4f26d160ac4eb68b117a5deebff,
         type: 3}
+      propertyPath: propertyInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 2835ff0dfbb82694da94f451e9a763d5,
+        type: 2}
+    - target: {fileID: 1665578984082171893, guid: 897ac4f26d160ac4eb68b117a5deebff,
+        type: 3}
       propertyPath: propertyName
       value: ShadowStrength
       objectReference: {fileID: 0}
@@ -3542,6 +3548,9 @@ MonoBehaviour:
   containerName: Car
   propertyName: UnderGlowColor
   userColorValue: 1
+  colorPropertyObject: {fileID: 11400000, guid: ccca28e20b4d84840bed6301238eac63,
+    type: 2}
+  textureColorPropertyObject: {fileID: 0}
   colorPrefab: {fileID: 1568202780313406549, guid: 1ec1034e729adef4fb5e698f6f99c821,
     type: 3}
   container: {fileID: 5605379136637703024}
@@ -4027,6 +4036,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1665578984082171893, guid: 897ac4f26d160ac4eb68b117a5deebff,
         type: 3}
+      propertyPath: propertyInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: f1f1ea5758b7d7944ac9a16663428b2a,
+        type: 2}
+    - target: {fileID: 1665578984082171893, guid: 897ac4f26d160ac4eb68b117a5deebff,
+        type: 3}
       propertyPath: propertyName
       value: SunlightRotation
       objectReference: {fileID: 0}
@@ -4487,6 +4502,9 @@ MonoBehaviour:
   containerName: Car
   propertyName: CarColor
   userColorValue: 0
+  colorPropertyObject: {fileID: 0}
+  textureColorPropertyObject: {fileID: 11400000, guid: 92cb4a940f58c9f4a9681b1d6f9bf51e,
+    type: 2}
   colorPrefab: {fileID: 1568202780313406549, guid: 1ec1034e729adef4fb5e698f6f99c821,
     type: 3}
   container: {fileID: 4331840710800015702}
@@ -5110,6 +5128,12 @@ PrefabInstance:
       propertyPath: PropertyName
       value: HeadlightsVis
       objectReference: {fileID: 0}
+    - target: {fileID: 8424483567462427373, guid: 284e96d3696b5724aa9fefe45f0676f0,
+        type: 3}
+      propertyPath: propertyInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: c1ed337bf0beffa45bc2763974387b9a,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5274,6 +5298,12 @@ PrefabInstance:
       propertyPath: PropertyName
       value: UnderGlowVis
       objectReference: {fileID: 0}
+    - target: {fileID: 8424483567462427373, guid: 284e96d3696b5724aa9fefe45f0676f0,
+        type: 3}
+      propertyPath: propertyInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: e2085fc2b08e6ad4da06c950403d1c2b,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

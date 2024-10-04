@@ -1,4 +1,5 @@
 ﻿using System;
+using CavrnusDemo.CavrnusDataObjects;
 using CavrnusSdk.API;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,11 +10,7 @@ namespace CavrnusSdk.CollaborationExamples
     [RequireComponent(typeof(Slider))]
     public class CavrnusPropertySlider : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
     {
-        [SerializeField] private string containerName;
-        [SerializeField] private string propertyName;
-
-        [Space]
-        [SerializeField] private float defaultValue = 0f;
+        [SerializeField] private FloatCavrnusPropertyObject propertyInfo;
         
         private Slider slider;
 
@@ -31,8 +28,7 @@ namespace CavrnusSdk.CollaborationExamples
             
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc => {
                 spaceConn = sc;
-                sc.DefineFloatPropertyDefaultValue(containerName, propertyName, defaultValue);
-                binding = sc.BindFloatPropertyValue(containerName, propertyName, val => {
+                binding = sc.BindFloatPropertyValue(propertyInfo.ContainerName, propertyInfo.PropertyName, val => {
                     slider.SetValueWithoutNotify(val);
                 });
                 
@@ -47,7 +43,7 @@ namespace CavrnusSdk.CollaborationExamples
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            livePropertyUpdate ??= spaceConn.BeginTransientFloatPropertyUpdate(containerName, propertyName, slider.value);
+            livePropertyUpdate ??= spaceConn.BeginTransientFloatPropertyUpdate(propertyInfo.ContainerName, propertyInfo.PropertyName, slider.value);
         }
 
         public void OnEndDrag(PointerEventData eventData)

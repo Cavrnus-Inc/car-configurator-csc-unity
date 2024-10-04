@@ -1,15 +1,14 @@
-﻿using CavrnusSdk.API;
+﻿using CavrnusDemo.CavrnusDataObjects;
+using CavrnusSdk.API;
 using UnityEngine;
 
 namespace CavrnusSdk.CollaborationExamples
 {
     public class CavrnusSyncDirectionalLightProperties : MonoBehaviour
     {
-        [SerializeField] private string containerName;
-
         [Header("Color Sync Properties")]
-        [SerializeField] private string rotationPropertyName;
-        [SerializeField] private string shadowPropertyName;
+        [SerializeField] private FloatCavrnusPropertyObject sunRotationProperty;
+        [SerializeField] private FloatCavrnusPropertyObject shadowStrengthProperty;
         
         [Header("Components")]
         [SerializeField] private GameObject lightContainer;
@@ -21,12 +20,12 @@ namespace CavrnusSdk.CollaborationExamples
         {
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(spaceConn => {
 
-                spaceConn.BindFloatPropertyValue(containerName, rotationPropertyName, val => {
+                spaceConn.BindFloatPropertyValue(sunRotationProperty.ContainerName, sunRotationProperty.PropertyName, val => {
                     RenderSettings.skybox.SetFloat(Rotation, val);
                     lightContainer.transform.localRotation = Quaternion.Euler(new Vector3(0, -val, 0));     
                 });
          
-                spaceConn.BindFloatPropertyValue(containerName, shadowPropertyName, val => {
+                spaceConn.BindFloatPropertyValue(shadowStrengthProperty.ContainerName, shadowStrengthProperty.PropertyName, val => {
                     targetLight.shadowStrength = val; 
                 });
             });

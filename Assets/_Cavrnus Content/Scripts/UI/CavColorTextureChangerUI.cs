@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CavrnusDemo.CavrnusDataObjects;
 using CavrnusSdk.API;
 using UnityEngine;
 
@@ -11,6 +12,9 @@ namespace CavrnusDemo
         [SerializeField] private string propertyName;
 
         [SerializeField] private bool userColorValue;
+
+        [SerializeField] private ColorCavrnusPropertyObject colorPropertyObject;
+        [SerializeField] private StringCavrnusPropertyObject textureColorPropertyObject;
         
         [SerializeField] private GameObject colorPrefab;
         [SerializeField] private Transform container;
@@ -22,8 +26,6 @@ namespace CavrnusDemo
         private List<IDisposable> bindings = new List<IDisposable>();
         private CavrnusSpaceConnection spaceConnection;
 
-        private CavrnusColorCollection.ColorTextureInfo defaultColorData;
-
         private void Start()
         {
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc => {
@@ -32,20 +34,17 @@ namespace CavrnusDemo
                     var go = Instantiate(colorPrefab, container);
                     items.Add(go.GetComponent<ColorTextureChangerItem>());
                     go.GetComponent<ColorTextureChangerItem>().Setup(data, OnSelected);
-
-                    if (data.IsDefault) 
-                        defaultColorData = data;
                 }
 
                 if (userColorValue) {
-                    sc.DefineColorPropertyDefaultValue(containerName, propertyName, defaultColorData?.Color ?? Color.black);
+                    sc.DefineColorPropertyDefaultValue(colorPropertyObject.ContainerName, colorPropertyObject.PropertyName, colorPropertyObject.DefaultValue);
                     bindings.Add(sc.BindColorPropertyValue(containerName, propertyName, serverColor => {
                         var serverData = colorData.GetDataFromColor(serverColor);
                         SetSelectedColor(serverData);
                     }));
                 }
                 else {
-                    sc.DefineStringPropertyDefaultValue(containerName, propertyName, defaultColorData?.Texture.name ?? "");
+                    sc.DefineStringPropertyDefaultValue(textureColorPropertyObject.ContainerName, textureColorPropertyObject.PropertyName, textureColorPropertyObject.DefaultValue);
                     bindings.Add(sc.BindStringPropertyValue(containerName, propertyName, serverTexture => {
                         if (string.IsNullOrWhiteSpace(serverTexture)) 
                             return;
@@ -60,9 +59,9 @@ namespace CavrnusDemo
         private void OnSelected(CavrnusColorCollection.ColorTextureInfo data)
         {
             if (data.Texture == null)
-                spaceConnection?.PostColorPropertyUpdate(containerName, propertyName, data.Color);
+                spaceConnection?.PostColorPropertyUpdate(colorPropertyObject.ContainerName, colorPropertyObject.PropertyName, data.Color);
             else
-                spaceConnection?.PostStringPropertyUpdate(containerName, propertyName, data.Texture.name);
+                spaceConnection?.PostStringPropertyUpdate(colorPropertyObject.ContainerName, colorPropertyObject.PropertyName, data.Texture.name);
         }
 
         private void SetSelectedColor(CavrnusColorCollection.ColorTextureInfo selectedData)

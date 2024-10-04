@@ -2093,6 +2093,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8973682407160686292, guid: 1b252388c8711104fbd931acbf2ac0ba,
+        type: 3}
+      propertyPath: carColor
+      value: red
+      objectReference: {fileID: 0}
     - target: {fileID: 9207854023160196421, guid: 1b252388c8711104fbd931acbf2ac0ba,
         type: 3}
       propertyPath: m_AnchorMax.y

@@ -1895,8 +1895,7 @@ MonoBehaviour:
   OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  containerName: Car
-  propertyName: DriverDoorAnimation
+  boolProperty: {fileID: 11400000, guid: feb58ddba8845bb45b655ff240c93339, type: 2}
   rotationSpeed: 50
   animationCurve:
     serializedVersion: 2
@@ -2612,8 +2611,7 @@ MonoBehaviour:
   OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  containerName: Car
-  propertyName: TrunkAnimation
+  boolProperty: {fileID: 11400000, guid: ecc1ed83c7f9f2048913060c66d56ede, type: 2}
   rotationSpeed: 50
   animationCurve:
     serializedVersion: 2
@@ -3393,8 +3391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae136691be374da8b5ccc9fef8fb456b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  containerName: Car
-  propertyName: HeadlightsVis
+  boolProperty: {fileID: 11400000, guid: c1ed337bf0beffa45bc2763974387b9a, type: 2}
   emissiveMaterial: {fileID: 2100000, guid: 788e1fd9c52c28a459976f2634877c65, type: 2}
   emissionColorMaterialProperty: _EmissionColor
   lights:
@@ -4404,8 +4401,7 @@ MonoBehaviour:
   OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  containerName: Car
-  propertyName: PassengerDoorAnimation
+  boolProperty: {fileID: 11400000, guid: fc81640388278b949887617287f7de73, type: 2}
   rotationSpeed: 50
   animationCurve:
     serializedVersion: 2

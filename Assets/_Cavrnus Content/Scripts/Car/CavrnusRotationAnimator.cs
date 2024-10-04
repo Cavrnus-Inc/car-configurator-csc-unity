@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using CavrnusDemo.CavrnusDataObjects;
 using CavrnusSdk.API;
 using Unity.Collections;
 using UnityEngine;
@@ -11,8 +12,7 @@ namespace CavrnusDemo
     {
         public UnityEvent<bool> OnValueChanged;
 
-        [SerializeField] private string containerName;
-        [SerializeField] private string propertyName;
+        [SerializeField] private BoolCavrnusPropertyObject boolProperty;
         
         [Range(5f, 100f)]
         [SerializeField] private float rotationSpeed = 50f;
@@ -31,14 +31,14 @@ namespace CavrnusDemo
         {
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc => {
                 spaceConnection = sc;
-                binding = sc.BindBoolPropertyValue(containerName, propertyName, SetState);
+                binding = sc.BindBoolPropertyValue(boolProperty.ContainerName, boolProperty.PropertyName, SetState);
             });
         }
 
         public void Toggle()
         {
-            var current = spaceConnection.GetBoolPropertyValue(containerName, propertyName);
-            spaceConnection.PostBoolPropertyUpdate(containerName, propertyName, !current);
+            var current = spaceConnection.GetBoolPropertyValue(boolProperty.ContainerName, boolProperty.PropertyName);
+            spaceConnection.PostBoolPropertyUpdate(boolProperty.ContainerName, boolProperty.PropertyName, !current);
         }
         
         public void SetState(bool setToEnd)

@@ -1,4 +1,5 @@
 ﻿using System;
+using CavrnusDemo.CavrnusDataObjects;
 using CavrnusSdk.API;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,14 +9,9 @@ namespace Cavrnus.UI
     [RequireComponent(typeof(Toggle))]
     public class CavrnusPropertyToggle : MonoBehaviour
     {
-        [SerializeField] public string ContainerName;
-        [SerializeField] public string PropertyName;
+        [SerializeField] private BoolCavrnusPropertyObject propertyInfo;
 
-        [Space]
-        [SerializeField] private bool defaultOn = false;
-        
         private Toggle toggle;
-
         private CavrnusSpaceConnection spaceConn;
         private IDisposable binding;
 
@@ -29,8 +25,7 @@ namespace Cavrnus.UI
 
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc => {
                 spaceConn = sc;
-                sc.DefineBoolPropertyDefaultValue(ContainerName,PropertyName,defaultOn);
-                binding = sc.BindBoolPropertyValue(ContainerName, PropertyName, b => {
+                binding = sc.BindBoolPropertyValue(propertyInfo.ContainerName, propertyInfo.PropertyName, b => {
                     toggle.isOn = b;
                 });
                 
@@ -40,7 +35,7 @@ namespace Cavrnus.UI
 
         private void ToggleClicked(bool val)
         {
-            spaceConn?.PostBoolPropertyUpdate(ContainerName, PropertyName, val);
+            spaceConn?.PostBoolPropertyUpdate(propertyInfo.ContainerName, propertyInfo.PropertyName, val);
         }
 
         private void OnDestroy()
