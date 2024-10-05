@@ -68,6 +68,8 @@ namespace CavrnusDemo
                 sc.DefineBoolPropertyDefaultValue(boolProperty.ContainerName, boolProperty.PropertyName, boolProperty.DefaultValue);
                 binding = sc.BindBoolPropertyValue(boolProperty.ContainerName, boolProperty.PropertyName, b =>
                 {
+                    Debug.Log($"Hitting binding!: {b}");
+
                     SetState(b);
                 });
             });
@@ -81,6 +83,8 @@ namespace CavrnusDemo
 
             var serverVal = spaceConnection.GetBoolPropertyValue(boolProperty.ContainerName, boolProperty.PropertyName);
             spaceConnection.PostBoolPropertyUpdate(boolProperty.ContainerName, boolProperty.PropertyName, !serverVal);
+            
+            Debug.Log($"INTERACTED WITH: {serverVal}");
         }
 
         private void SetState(bool state)
