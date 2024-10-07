@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ContainerNameEnum: 0
   PropertyName: CarColor
+  DisplayName: CarColor
+  Description: The car's paint color
   DefaultValue: white

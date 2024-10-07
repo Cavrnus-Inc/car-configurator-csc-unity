@@ -1,6 +1,4 @@
-﻿using System;
-using CavrnusDemo.CavrnusDataObjects;
-using CavrnusSdk.API;
+﻿using CavrnusDemo.CavrnusDataObjects;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -14,50 +12,49 @@ namespace CavrnusSdk.CollaborationExamples
         
         private Slider slider;
 
-        private CavrnusLivePropertyUpdate<float> livePropertyUpdate;
-        private IDisposable binding;
-        private CavrnusSpaceConnection spaceConn;
-
-        private void Start()
+        private void Awake()
         {
             slider = GetComponent<Slider>();
             if (!slider) {
                 print("Missing required slider!");
                 return;
             }
+
+            slider.minValue = propertyInfo.MinMaxSliderLimits.x;
+            slider.maxValue = propertyInfo.MinMaxSliderLimits.y;
             
-            CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc => {
-                spaceConn = sc;
-                binding = sc.BindFloatPropertyValue(propertyInfo.ContainerName, propertyInfo.PropertyName, val => {
-                    slider.SetValueWithoutNotify(val);
-                });
-                
-                slider.onValueChanged.AddListener(OnValueChanged);
-            });
+            propertyInfo.OnServerValueUpdated += OnServerValueUpdated;
+            slider.onValueChanged.AddListener(OnValueChanged);
+        }
+
+        private void OnServerValueUpdated(float val)
+        {
+            slider.SetValueWithoutNotify(val);
         }
 
         private void OnValueChanged(float val)
         {
-            livePropertyUpdate?.UpdateWithNewData(val);
+            propertyInfo.TransientUpdateWithNewData(val);
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            livePropertyUpdate ??= spaceConn.BeginTransientFloatPropertyUpdate(propertyInfo.ContainerName, propertyInfo.PropertyName, slider.value);
+            propertyInfo.BeginTransientUpdate(slider.value);
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            livePropertyUpdate?.Finish();
-            livePropertyUpdate = null;
+            propertyInfo.FinishTransient();
         }
 
         public void OnPointerClick(PointerEventData eventData) { }
 
         private void OnDestroy()
         {
-            binding?.Dispose();
-            slider?.onValueChanged.RemoveListener(OnValueChanged);
+            propertyInfo.Unbind();
+            propertyInfo.OnServerValueUpdated -= OnServerValueUpdated;
+            
+            slider.onValueChanged.RemoveListener(OnValueChanged);
         }
     }
 }

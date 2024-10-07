@@ -631,10 +631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0d38b25fc847189f4e1428a6f1369e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  containerName: Car
-  propertyName: CarColor
-  displayName: CarColor
-  description: The car's paint color
+  propertyInfo: {fileID: 11400000, guid: 92cb4a940f58c9f4a9681b1d6f9bf51e, type: 2}
   colorData: {fileID: 11400000, guid: 31bba0939f9777b4ca75e53c16439691, type: 2}
   targetMaterial: {fileID: 2100000, guid: 5502db90b1c3c27419be0eb96ef2a814, type: 2}
 --- !u!1 &651744713069772159
@@ -1856,7 +1853,7 @@ GameObject:
   - component: {fileID: 7799948012189496612}
   - component: {fileID: 2265282596391096397}
   - component: {fileID: 5121669600675438631}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Animate Me - Driver Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2516,7 +2513,7 @@ GameObject:
   - component: {fileID: 4098502989112792032}
   - component: {fileID: 7963894418291118237}
   - component: {fileID: 2649982057565357851}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Baggage_Exterior_AnimateMe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4362,7 +4359,7 @@ GameObject:
   - component: {fileID: 6713522911283838276}
   - component: {fileID: 2134989034927461043}
   - component: {fileID: 5970905790810346450}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Animate Me - Passenger Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}

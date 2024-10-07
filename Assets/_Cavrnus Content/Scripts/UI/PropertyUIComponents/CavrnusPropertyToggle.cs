@@ -1,6 +1,4 @@
-﻿using System;
-using CavrnusDemo.CavrnusDataObjects;
-using CavrnusSdk.API;
+﻿using CavrnusDemo.CavrnusDataObjects;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,38 +8,35 @@ namespace Cavrnus.UI
     public class CavrnusPropertyToggle : MonoBehaviour
     {
         [SerializeField] private BoolCavrnusPropertyObject propertyInfo;
-
+        
         private Toggle toggle;
-        private CavrnusSpaceConnection spaceConn;
-        private IDisposable binding;
-
-        private void Start()
+        
+        private void Awake()
         {
             toggle = gameObject.GetComponent<Toggle>();
             if (toggle == null) {
-                print("Toggle is null!");
+                print("Missing required Toggle!");
                 return;
             }
-
-            CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc => {
-                spaceConn = sc;
-                binding = sc.BindBoolPropertyValue(propertyInfo.ContainerName, propertyInfo.PropertyName, b => {
-                    toggle.isOn = b;
-                });
-                
-                toggle.onValueChanged.AddListener(ToggleClicked);
-            });
+            
+            propertyInfo.OnServerValueUpdated += OnServerValueUpdated;
+            toggle.onValueChanged.AddListener(ToggleClicked);
         }
-
+        
+        private void OnServerValueUpdated(bool val)
+        {
+            toggle.isOn = val;
+        }
+        
         private void ToggleClicked(bool val)
         {
-            spaceConn?.PostBoolPropertyUpdate(propertyInfo.ContainerName, propertyInfo.PropertyName, val);
+            propertyInfo.PostValue(val);
         }
-
+        
         private void OnDestroy()
         {
-            toggle?.onValueChanged.RemoveListener(ToggleClicked);
-            binding?.Dispose();
+            toggle.onValueChanged.RemoveListener(ToggleClicked);
+            propertyInfo.OnServerValueUpdated -= OnServerValueUpdated;
         }
     }
 }

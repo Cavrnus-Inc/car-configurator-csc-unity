@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ContainerNameEnum: 0
   PropertyName: UnderGlowColor
-  DefaultValue: {r: 1, g: 0, b: 0, a: 1}
+  DefaultValue: {r: 1, g: 0.32928923, b: 0.3150943, a: 1}

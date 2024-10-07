@@ -127,7 +127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8652908321817920299}
-  - component: {fileID: 8224448221721868404}
+  - component: {fileID: 577650560339838085}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -152,7 +152,7 @@ Transform:
   - {fileID: 2287314137817027373}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8224448221721868404
+--- !u!114 &577650560339838085
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,15 +161,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7463527257489940772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9043936615404c16a937625fbf87e214, type: 3}
+  m_Script: {fileID: 11500000, guid: c8363f5b03b3452c98fc17ffaa6479c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sunRotationProperty: {fileID: 11400000, guid: f1f1ea5758b7d7944ac9a16663428b2a,
+  sunlightRotationProperty: {fileID: 11400000, guid: f1f1ea5758b7d7944ac9a16663428b2a,
     type: 2}
   shadowStrengthProperty: {fileID: 11400000, guid: 2835ff0dfbb82694da94f451e9a763d5,
     type: 2}
   lightContainer: {fileID: 8403685275004568370}
-  targetLight: {fileID: 8454741097612335861}
+  directionalLight: {fileID: 8454741097612335861}
 --- !u!1 &8403685275004568370
 GameObject:
   m_ObjectHideFlags: 0

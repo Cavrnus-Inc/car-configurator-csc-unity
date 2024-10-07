@@ -3,12 +3,18 @@ using UnityEngine;
 
 namespace CavrnusDemo.CavrnusDataObjects
 {
-    [CreateAssetMenu(fileName = "CavrnusColorProperty", menuName = "Cavrnus/CarData/ColorData", order = 0)]
+    [CreateAssetMenu(fileName = "CavrnusColorProperty", menuName = "Cavrnus/PropertyObjects/ColorData", order = 0)]
     public class ColorCavrnusPropertyObject : CavrnusPropertyObject<Color>
     {
-        protected override void OnSpaceConnected(CavrnusSpaceConnection spaceConnection)
+        public override void PostValue(Color value)
         {
-            spaceConnection.DefineColorPropertyDefaultValue(ContainerName, PropertyName, DefaultValue);
+            SpaceConnection?.PostColorPropertyUpdate(ContainerName, PropertyName, value);
+        }
+
+        protected override void SetBinding()
+        {
+            SpaceConnection.DefineColorPropertyDefaultValue(ContainerName, PropertyName, DefaultValue);
+            Binding = SpaceConnection.BindColorPropertyValue(ContainerName, PropertyName, SendUpdateEvent);
         }
     }
 }

@@ -25,6 +25,8 @@ namespace CavrnusDemo
 
         private void Start()
         {
+            
+            
             CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc => {
                 spaceConnection = sc;
                 foreach (var data in colorData.ColorData) {

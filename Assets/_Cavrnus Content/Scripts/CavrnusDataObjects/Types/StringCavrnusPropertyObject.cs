@@ -3,12 +3,21 @@ using UnityEngine;
 
 namespace CavrnusDemo.CavrnusDataObjects
 {
-    [CreateAssetMenu(fileName = "CavrnusStringProperty", menuName = "Cavrnus/CarData/StringData", order = 0)]
+    [CreateAssetMenu(fileName = "CavrnusStringProperty", menuName = "Cavrnus/PropertyObjects/StringData", order = 0)]
     public class StringCavrnusPropertyObject : CavrnusPropertyObject<string>
     {
-        protected override void OnSpaceConnected(CavrnusSpaceConnection spaceConnection)
+        public string DisplayName;
+        public string Description;
+        
+        public override void PostValue(string value)
         {
-            spaceConnection.DefineStringPropertyDefaultValue(ContainerName, PropertyName, DefaultValue);
+            SpaceConnection?.PostStringPropertyUpdate(ContainerName, PropertyName, value);
+        }
+        
+        protected override void SetBinding()
+        {
+            SpaceConnection.DefineStringPropertyDefaultValue(ContainerName, PropertyName, DefaultValue);
+            Binding = SpaceConnection.BindStringPropertyValue(ContainerName, PropertyName, SendUpdateEvent);
         }
     }
 }
