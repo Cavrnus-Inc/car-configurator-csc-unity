@@ -10,10 +10,12 @@
       "url": "https://packages.cavrn.us"
     },
     "com.cavrnus.csc": {
-      "version": "2.13.3",
+      "version": "2.15.0",
       "depth": 0,
       "source": "registry",
-      "dependencies": {},
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      },
       "url": "https://packages.cavrn.us"
     },
     "com.cavrnus.xr": {

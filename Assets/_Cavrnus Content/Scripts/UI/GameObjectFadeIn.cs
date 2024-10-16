@@ -17,7 +17,7 @@ namespace CavrnusDemo
 
         private void OnEnable()
         {
-            CavrnusStatics.Scheduler.ExecCoRoutine(this.DoFade(new List<CanvasGroup> {cg}, duration, true));
+            gameObject.DoFade(new List<CanvasGroup> {cg}, duration, true);
         }
     }
 }

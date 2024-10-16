@@ -395,6 +395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PropertyName: Transform
   SendMyChanges: 1
+  Tag: 
   RecieveChanges: 1
 --- !u!114 &1090855092
 MonoBehaviour:
@@ -597,6 +598,21 @@ PrefabInstance:
       propertyPath: UiCanvas
       value: 
       objectReference: {fileID: 440293778}
+    - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
+        type: 3}
+      propertyPath: MemberEmail
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
+        type: 3}
+      propertyPath: MemberPassword
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
+        type: 3}
+      propertyPath: SpaceJoinMethod
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}
       propertyPath: RemoteUserAvatar

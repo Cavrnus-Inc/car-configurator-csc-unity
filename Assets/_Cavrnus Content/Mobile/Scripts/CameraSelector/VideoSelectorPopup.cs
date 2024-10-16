@@ -21,7 +21,7 @@ namespace Cavrnus.UI
         {
             spaceConnection = sc;
             
-            CavrnusFunctionLibrary.FetchVideoInputs(opts => {
+            sc.FetchVideoInputs(opts => {
                 videoInputs = opts;
                 for (var i = 0; i < opts.Count; i++) {
                     var go = Instantiate(entryPrefab, entryParent, true);
@@ -38,7 +38,7 @@ namespace Cavrnus.UI
                 return;
             }
 
-            CavrnusFunctionLibrary.UpdateVideoInput(videoInputs[id]);
+            spaceConnection.UpdateVideoInput(videoInputs[id]);
 			
             spaceConnection.SetLocalUserStreamingState(true);
             
