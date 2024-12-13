@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.cavrnus.csc": "2.19.0",
+    "com.cavrnus.csc": "2.19.1",
     "com.cavrnus.xr": "1.1.3",
     "com.unify.unified-universal-blur": "https://github.com/lukakldiashvili/Unified-Universal-Blur.git",
     "com.unity.2d.sprite": "1.0.0",
