@@ -601,12 +601,12 @@ PrefabInstance:
     - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}
       propertyPath: MemberPassword
-      value: 52493127
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}
       propertyPath: SpaceJoinMethod
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}
@@ -614,6 +614,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4723734819478910584, guid: e599be8019d5d494688dadc45a8c2c82,
         type: 3}
+    - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
+        type: 3}
+      propertyPath: MemberLoginMethod
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}
       propertyPath: AuthenticationMethod
